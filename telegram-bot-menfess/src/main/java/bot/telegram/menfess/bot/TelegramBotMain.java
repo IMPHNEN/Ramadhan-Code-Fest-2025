@@ -1,12 +1,16 @@
 package bot.telegram.menfess.bot;
 
 import bot.telegram.menfess.config.RulesCofiguration;
+import bot.telegram.menfess.entity.Transaction;
+import bot.telegram.menfess.entity.TransactionStatus;
 import bot.telegram.menfess.entity.Users;
 import bot.telegram.menfess.entity.UsersLevel;
+import bot.telegram.menfess.service.TransactionService;
 import bot.telegram.menfess.service.UserService;
 
 import bot.telegram.menfess.utils.command.SendCommand;
 import bot.telegram.menfess.utils.command.StartCommand;
+import bot.telegram.menfess.utils.command.TopUpCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +24,9 @@ public class TelegramBotMain extends TelegramLongPollingBot {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TransactionService transactionService;
 
     private final String botName;
 
@@ -35,8 +42,10 @@ public class TelegramBotMain extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
 
         if (update.getMessage() != null) {
-            var isRegister = userService.findUsers(update.getMessage().getChatId());
-            log.warn("From users {}", update.getMessage().getChatId());
+            long chatId = update.getMessage().getChatId();
+            String text = update.getMessage().getText();
+            var isRegister = userService.findUsers(chatId);
+            log.warn("From users {}", chatId);
             if (update.getMessage().getText().equals("/start")) {
                 if (isRegister != null) {
                     try {
@@ -53,37 +62,105 @@ public class TelegramBotMain extends TelegramLongPollingBot {
                     }
                 }
 
-            } else if (update.getMessage().getText().contains("/send")) {
-                Users users = userService.findUsers(update.getMessage().getChatId());
+            } else if (text.contains("/send")) {
+                Users users = userService.findUsers(chatId);
                 log.info(users.getLevel().toString());
-                if (users.getLimitService() > 0) {
+                if (users.getBalance() == 0 && users.getLimitService() == 0) {
+                    Thread.startVirtualThread(() -> userService.changeLevel(chatId, UsersLevel.FREE));
+                }
+                if (text.equals("/send")) {
+                    try {
+                        execute(new SendCommand().helpSendMenfess(update));
+                    } catch (TelegramApiException e) {
+                        log.warn(e.getMessage());
+                    }
+                } else if (users.getLimitService() > 0) {
                     if(users.getLevel() == UsersLevel.FREE) {
-                        if (update.getMessage().getText().contains(update.getMessage().getChat().getUserName())) {
-                            log.warn(update.getMessage().getText());
+                        if (text.contains(update.getMessage().getChat().getUserName())) {
+                            log.warn(text);
                             try {
-                                execute(new SendCommand().message(update.getMessage().getText().replace("/send ", ""), -1002161694809L));
+                                Thread.startVirtualThread(() -> userService.changeLimitService(chatId, users.getLimitService() - 1));
+                                execute(new SendCommand().message(text.replace("/send ", ""), new RulesCofiguration().getChannelId));
+
                             } catch (TelegramApiException e) {
                                 log.warn(e.getMessage());
                             }
                         } else {
                             try {
-                                execute(new SendCommand().errorUsersFreeNotContainsUsername("Pesan anda tidak mengandung username anda", update.getMessage().getChatId()));
+                                execute(new SendCommand().errorUsersFreeNotContainsUsername("Pesan anda tidak mengandung username anda", chatId));
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }
                         }
                     } else {
                         try {
-                            execute(new SendCommand().message(update.getMessage().getText().replace("/send ", ""), -1002161694809L));
+                            Thread.startVirtualThread(() -> {
+                               Users users1 = userService.findUsers(chatId);
+                                 users1.setLimitService(users1.getLimitService() - 1);
+                                 userService.changeLimitService(chatId, users1.getLimitService());
+                            });
+                            execute(new SendCommand().message(text.replace("/send ", ""), new RulesCofiguration().getChannelId));
                         } catch (TelegramApiException e) {
                             throw new RuntimeException(e);
                         }
                     }
+                } else if (users.getLimitService() == 0 && users.getLevel() == UsersLevel.PREMIUM && users.getBalance() > new RulesCofiguration().getPayAmountAfterLimit()) {
+                    if (text.contains(update.getMessage().getChat().getUserName())) {
+                        try {
+                            Thread.startVirtualThread(() -> userService.changeLimitService(chatId, users.getLimitService() - 1));
+                            execute(new SendCommand().message(text.replace("/send ", ""), new RulesCofiguration().getChannelId));
+
+                        } catch (TelegramApiException e) {
+                            log.warn(e.getMessage());
+                        }
+                    } else {
+                        try {
+                            Thread.startVirtualThread(() -> userService.deductBalance(chatId, new RulesCofiguration().getPayAmountAfterLimit()));
+                            execute(new SendCommand().message(text.replace("/send ", ""), new RulesCofiguration().getChannelId));
+
+                        } catch (TelegramApiException e) {
+                            log.warn(e.getMessage());
+                        }
+                    }
+
+
                 } else {
                     try {
-                        execute(new SendCommand().errorUsersNotHaveLimit("Anda tidak memiliki limit", update.getMessage().getChatId()));
+                        execute(new SendCommand().errorUsersNotHaveLimit("Anda tidak memiliki limit", chatId));
                     } catch (TelegramApiException e) {
                         throw new RuntimeException(e);
+                    }
+                }
+            } else if (text.contains("/topup")) {
+                if (text.equals("/topup")) {
+                    try {
+                        execute(new TopUpCommand().helpTopUp(chatId));
+                    } catch (TelegramApiException e) {
+                        log.warn(e.getMessage());
+                    }
+                } else {
+                    Transaction transaction = transactionService.findNotClaimedTransaction(text.replace("/topup ", ""), TransactionStatus.SUCCESS);
+                    if (transaction != null) {
+                        try {
+                            execute(new TopUpCommand().topUpMessage(chatId, true));
+                            Thread.startVirtualThread(() -> {
+                                transaction.setTransactionStatus(TransactionStatus.ACCEPT);
+                                transaction.setUserId(chatId);
+                                userService.topUpBalance(chatId, transaction.getPrice());
+                                userService.changeLevel(chatId, UsersLevel.PREMIUM);
+                                userService.changeLimitService(chatId, transaction.getPrice()/new RulesCofiguration().getPayAmountAfterLimit());
+                                transactionService.saveTransaction(transaction);
+                            });
+                            System.out.println(transaction.getTransactionId());
+                        } catch (TelegramApiException e) {
+                            log.warn(e.getMessage());
+                        }
+                    } else {
+                        try {
+                            execute(new TopUpCommand().topUpMessage(chatId, false));
+                        } catch (TelegramApiException e) {
+                            log.warn(e.getMessage());
+                        }
                     }
                 }
             }

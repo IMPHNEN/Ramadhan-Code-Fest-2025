@@ -47,5 +47,11 @@ public class UserService {
         }
         return null;
     }
+    public Users changeLimitService(Long id, long limitService) {
+        return usersRepository.findById(id).map(users -> {
+            users.setLimitService(limitService);
+            return usersRepository.save(users);
+        }).orElse(null);
+    }
 
 }

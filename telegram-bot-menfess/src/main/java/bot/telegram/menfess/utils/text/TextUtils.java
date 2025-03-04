@@ -1,5 +1,6 @@
 package bot.telegram.menfess.utils.text;
 
+
 public class TextUtils {
 
     public static String welcomMessage = """
@@ -32,4 +33,10 @@ public class TextUtils {
             10. Jika saldo anda habis, dan limit free anda habis, anda tidak bisa mengirim pesan""";
 
     public static String helpSendMenfess = "Gunakan command /send lalu diikuti dengan pesan yang anda kirim";
+
+    public static String topUpSuccess = "Top up berhasil. Saldo anda sekarang adalah :";
+
+    public static String topUpFailed = "Top up gagal. Kode transaksi tidak ditemukan, Silahkan coba lagi";
+
+    public static String helpTopUp = "Gunakan command /topup lalu diikuti dengan kode transaksi top up anda";
 }

@@ -8,10 +8,18 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Slf4j
 public class SendCommand {
 
-    public SendMessage help(Update update) {
+    public SendMessage helpSendMenfess(Update update) {
         return SendMessage.builder()
                 .chatId(update.getMessage().getChatId())
                 .text(TextUtils.help)
+                .parseMode("HTML")
+                .build();
+    }
+
+    public SendMessage help(Update update) {
+        return SendMessage.builder()
+                .chatId(update.getMessage().getChatId())
+                .text(TextUtils.helpSendMenfess)
                 .parseMode("HTML")
                 .build();
     }

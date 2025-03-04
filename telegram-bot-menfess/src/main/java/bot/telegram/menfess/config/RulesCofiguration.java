@@ -6,9 +6,9 @@ import lombok.Data;
 public class RulesCofiguration {
 
 
-    int limitFreeUsers = 3;
-    int payAmountAfterLimit = 100;
-    boolean forceShowUsername = true;
-    long getChannelId = -1002161694809L;
+    public int limitFreeUsers = 3;
+    public int payAmountAfterLimit = 100;
+    public boolean forceShowUsername = true;
+    public long getChannelId = -1002161694809L;
 
 }
