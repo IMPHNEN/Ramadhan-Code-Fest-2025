@@ -23,6 +23,10 @@ type UrlQuery struct {
 	Url string `query:"url"`
 }
 
+type IDQuery struct {
+	ID string `query:"id"`
+}
+
 var NewRegister *Register = &Register{}
 
 func (r *Register) RegisterProvider(i RegisterComponent) {
