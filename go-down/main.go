@@ -29,6 +29,10 @@ func handleProvider(app *fiber.App) {
 		switch v.Method {
 		case "GET":
 			app.Get(v.Endpoint, v.Code)
+		case "POST":
+			app.Post(v.Endpoint, v.Code)
+		case "PUT":
+			app.Put(v.Endpoint, v.Code)
 		}
 	}
 }
@@ -50,12 +54,14 @@ func useMiddleware(app *fiber.App) {
 }
 
 func main() {
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+      Prefork: false,
+  })
 
 	useMiddleware(app)
 
 	if PORT == "" {
-		PORT = "8080"
+		PORT = "3000"
 	}
 
 	app.Get("/", func(c *fiber.Ctx) error {
