@@ -10,3 +10,6 @@
 [submodule "jadwal-shalat"]
 	path = jadwal-shalat
 	url = https://github.com/ifalfahri/jadwal-shalat
+[submodule "pyblog-cli"]
+	path = pyblog-cli
+	url = https://github.com/indra87g/pyblog-cli
