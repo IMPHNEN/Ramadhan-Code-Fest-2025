@@ -1,0 +1,4 @@
+python-dotenv
+python-telegram-bot==20.0a0
+aiohttp
+urllib3<2.0
