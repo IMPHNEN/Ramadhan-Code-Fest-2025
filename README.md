@@ -7,6 +7,6 @@ Halo teman-teman, ini adalah event code fest dari IMPHNEN untuk menyambut bulan 
 ## Contributor 
 Terima kasih untuk para kontributor yang telah meramaikan repository ini :3
 
-<a href="https://github.com/IMPHNEN/Ramadhan-Code-Fest/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=IMPHNEN/Ramadhan-Code-Fest" />
+<a href="https://github.com/IMPHNEN/Ramadhan-Code-Fest-2025/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=IMPHNEN/Ramadhan-Code-Fest-2025" />
 </a>
