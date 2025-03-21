@@ -22,16 +22,17 @@ func main() {
 
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
+	defer signal.Stop(sigChan)
+
+	fmt.Println("SysTrack - Minimal System Monitor (Press Ctrl+C to exit)")
 
 	go func() {
+		fmt.Println("\n")
 		s := <-sigChan
 		slog.Info("shutdown signal received", "signal", s)
 		fmt.Println("\nExiting SysTrack. Goodbye!")
 		cancel()
-		os.Exit(0)
 	}()
-
-	fmt.Println("SysTrack - Minimal System Monitor (Press Ctrl+C to exit)")
 
 	mn := internal.NewMonitor()
 	ticker := time.NewTicker(1 * time.Second)

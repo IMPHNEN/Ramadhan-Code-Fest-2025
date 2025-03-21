@@ -1,0 +1,20 @@
+{
+  "name": "hackramadhan2025",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.2",
+    "chalk": "^5.4.1",
+    "figlet": "^1.8.0",
+    "gradient-string": "^3.0.0",
+    "nanospinner": "^1.2.2"
+  }
+}

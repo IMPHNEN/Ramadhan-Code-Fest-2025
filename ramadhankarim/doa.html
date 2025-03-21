@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doa Harian - Koleksi Doa Islami</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="./css/doa.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1 class="site-title">Doa Harian</h1>
+                        <p class="site-subtitle">Koleksi Doa Islami</p>
+                    </div>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link active">Beranda</a>
+                    <a href="#" class="nav-link">Koleksi Doa</a>
+                    <a href="#" class="nav-link">Panduan</a>
+                    <a href="#" class="nav-link">Tentang</a>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="hero animated">
+            <h2 class="hero-title">Temukan Doa untuk Setiap Momen Kehidupan</h2>
+            <p class="hero-subtitle">Kumpulan doa-doa dalam Al-Qur'an dan Hadits untuk membimbing kehidupan sehari-hari</p>
+        </section>
+        
+        <main class="main-content">
+            <div class="search-container animated">
+                <h3 class="search-title">Cari Doa</h3>
+                
+                <form id="doaForm" class="search-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-search input-icon"></i>
+                            <input type="text" id="doaInput" placeholder="Masukkan nama atau kata kunci doa (Ex: Makan)..." required>
+                        </div>
+                        
+                        <div class="select-wrapper">
+                            <i class="fas fa-server select-icon"></i>
+                            <select id="serverSelect" title="Pilih server API">
+                                <option value="server1">Server 1</option>
+                                <option value="server2">Server 2</option>                
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="submit">
+                            <i class="fas fa-book-open"></i>
+                            Cari Doa
+                        </button>
+                        
+                        <button type="button" class="secondary" id="btn-random">
+                            <i class="fas fa-random"></i>
+                            Doa Acak
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <section class="result-section">
+                <div id="doaOutput" class="result-container" style="display: none;">
+                    <!-- Results will be displayed here -->
+                </div>
+            </section>
+            
+            <section class="popular-searches animated">
+                <h3 class="section-title">Pencarian Populer</h3>
+                <div class="popular-list">
+                    <div class="popular-item">Doa Sebelum Tidur</div>
+                    <div class="popular-item">Doa Setelah Salat</div>
+                    <div class="popular-item">Doa Bepergian</div>
+                    <div class="popular-item">Doa Makan</div>
+                    <div class="popular-item">Doa Pagi Hari</div>
+                    <div class="popular-item">Doa Kesembuhan</div>
+                    <div class="popular-item">Doa Keselamatan</div>
+                    <div class="popular-item">Doa Sebelum Belajar</div>
+                </div>
+            </section>
+            
+            <section class="featured-doa animated">
+                <h3 class="section-title">Doa Pilihan Hari Ini</h3>
+                <div class="featured-card">
+                    <div class="featured-header">
+                        <h4 class="featured-title">Doa Memohon Ilmu yang Bermanfaat</h4>
+                        <p class="featured-subtitle">Dianjurkan dibaca setelah salat</p>
+                    </div>
+                    <div class="featured-body">
+                        <div class="result-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا</div>
+                        <div class="result-latin">Allāhumma innī as-aluka 'ilman nāfi'an, wa rizqan thayyiban, wa 'amalan mutaqabbalan</div>
+                        <div class="result-meaning">Ya Allah, sungguh aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang baik, dan amalan yang diterima.</div>
+                        <div class="result-meta">
+                            <div class="result-source">Sumber: HR. Ibnu Majah</div>
+                            <div class="action-buttons">
+                                <button class="btn-action">
+                                    <i class="fas fa-copy"></i>
+                                    Salin
+                                </button>
+                                <button class="btn-action">
+                                    <i class="fas fa-share-alt"></i>
+                                    Bagikan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4 class="footer-title">Doa Harian</h4>
+                <p class="footer-about">Doa Harian adalah platform yang menyediakan kumpulan doa-doa dari Al-Qur'an dan Hadits untuk memudahkan umat Muslim dalam mengakses doa-doa yang bermanfaat.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-title">Navigasi</h4>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Beranda</a>
+                    <a href="#" class="footer-link">Koleksi Doa</a>
+                    <a href="#" class="footer-link">Panduan</a>
+                    <a href="#" class="footer-link">Tentang</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-title">Kontak</h4>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Email:
+                        <span>
+                            <i class="fas fa-envelope"></i>
+                            Xnuversh1kar4@gmail.com
+                        </span>
+                    </a>
+                    <a href="#" class="footer-link">Telepon:
+                        <span>
+                            <i class="fas fa-phone"></i>
+                            08XXXXXXX
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; <script>document.write(new Date().getFullYear());</script> Doa Harian. Dibuat dengan ❤️ oleh <a href="#" class="footer-link">Xnuvers</a>
+        </div>
+    </footer>
+
+    <script src="./scripts/doa.js"></script>
+</body>
+</html>

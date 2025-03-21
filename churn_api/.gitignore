@@ -19,20 +19,10 @@ db.sqlite3
 Pipfile
 Pipfile.lock
 poetry.lock
-requirements.txt
 
 # ⛔ VS Code & PyCharm Settings
 .vscode/
 .idea/
-
-# ⛔ Model & Data (Opsional)
-*.h5
-*.hdf5
-*.pkl
-*.joblib
-*.csv
-*.json
-*.xlsx
 
 # ⛔ Docker & Build Files
 Dockerfile

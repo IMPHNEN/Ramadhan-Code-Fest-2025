@@ -8,38 +8,62 @@ import (
 	"strings"
 )
 
-func GetMemoryUsage() (uint64, uint64, error) {
+type MemoryInfo struct {
+	Total     uint64
+	Free      uint64
+	Available uint64
+	Used      uint64
+	UsedPerc  float64
+}
+
+func GetMemoryInfo() (MemoryInfo, error) {
+	var info MemoryInfo
+
 	data, err := os.ReadFile("/proc/meminfo")
 	if err != nil {
 		slog.Error("error reading /proc/meminfo", "error", err)
-		return 0, 0, fmt.Errorf("read /proc/meminfo: %w", err)
+		return info, fmt.Errorf("read /proc/meminfo: %w", err)
 	}
-	
-	memInfo := make(map[string]uint64)
-	lines := strings.Split(string(data), "\n")
-	
-	for _, line := range lines {
+
+	memData := parseMemInfo(string(data))
+	info.Total, _ = memData["MemTotal"]
+	info.Free, _ = memData["MemFree"]
+	info.Available, _ = memData["MemAvailable"]
+
+	if info.Available == 0 {
+		info.Available = estimateAvailableMemory(memData, info.Free)
+	}
+
+	info.Total /= 1024
+	info.Free /= 1024
+	info.Available /= 1024
+	info.Used = (info.Total - info.Available)
+	if info.Total > 0 {
+		info.UsedPerc = 100.0 * float64(info.Used) / float64(info.Total)
+	}
+
+	return info, nil
+}
+
+func parseMemInfo(data string) map[string]uint64 {
+	memData := make(map[string]uint64)
+	for _, line := range strings.Split(data, "\n") {
 		fields := strings.Fields(line)
 		if len(fields) < 2 {
 			continue
 		}
-		
-		key := strings.TrimSuffix(fields[0], ":")
-		val, err := strconv.ParseUint(fields[1], 10, 64)
-		if err != nil {
-			slog.Debug("failed to parse memory value", "key", key, "value", fields[1], "error", err)
-			continue
+		if val, err := strconv.ParseUint(fields[1], 10, 64); err == nil {
+			memData[strings.TrimSuffix(fields[0], ":")] = val
 		}
-		
-		memInfo[key] = val
 	}
-	
-	total, ok1 := memInfo["MemTotal"]
-	free, ok2 := memInfo["MemFree"]
-	
-	if !ok1 || !ok2 {
-		return 0, 0, fmt.Errorf("required memory info fields not found")
+	return memData
+}
+
+func estimateAvailableMemory(memData map[string]uint64, free uint64) uint64 {
+	buffers, hasBuffers := memData["Buffers"]
+	cached, hasCached := memData["Cached"]
+	if hasBuffers && hasCached {
+		return free + buffers + cached
 	}
-	
-	return total / 1024, free / 1024, nil
+	return free
 }
