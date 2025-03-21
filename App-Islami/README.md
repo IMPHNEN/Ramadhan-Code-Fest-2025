@@ -22,8 +22,8 @@ npm run dev
 ```
 
 ### 💻 Screenshot Aplikasi
-<img src="/public/screenshot/home.png">
-<img src="/public/screenshot/baca-alquran.png">
-<img src="/public/screenshot/contoh-surah.png">
-<img src="/public/screenshot/asmaul-husna.png">
-<img src="/public/screenshot/doa-harian.png">
+<img src="./public/screenshot/home.png">
+<img src="./public/screenshot/baca-alquran.png">
+<img src="./public/screenshot/contoh-surah.png">
+<img src="./public/screenshot/asmaul-husna.png">
+<img src="./public/screenshot/doa-harian.png">
