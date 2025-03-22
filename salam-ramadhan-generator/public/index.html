@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Ucapan Ramadhan</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #60ad5e;
+      --primary-dark: #005005;
+      --accent: #ffb300;
+      --text: #333;
+      --text-light: #757575;
+      --background: #f5f5f5;
+      --card: #fff;
+      --border-radius: 8px;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: var(--card);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent);
+      border-radius: 3px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 16px;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+    }
+
+    .button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      font-family: inherit;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .button.secondary {
+      background-color: var(--accent);
+      color: var(--text);
+    }
+
+    .button.secondary:hover {
+      background-color: #f9a825;
+    }
+
+    .result-area {
+      margin-top: 30px;
+    }
+
+    .message-preview {
+      width: 100%;
+      min-height: 150px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      margin-bottom: 15px;
+      font-family: inherit;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+    }
+
+    .character-count {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .copy-status {
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: 10px;
+      text-align: center;
+      min-height: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .copy-status.visible {
+      opacity: 1;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .loading.visible {
+      display: block;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: var(--transition);
+      color: var(--text-light);
+    }
+
+    .tab.active {
+      border-bottom-color: var(--primary);
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .history-container {
+      margin-top: 30px;
+    }
+
+    .history-item {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .history-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .history-item p {
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-item .history-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 5px;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header class="header">
+        <h1>Generator Ucapan Ramadhan</h1>
+      </header>
+      
+      <div class="tabs">
+        <div class="tab active" data-tab="generator">Generator</div>
+        <div class="tab" data-tab="history">Riwayat</div>
+      </div>
+      
+      <div class="tab-content active" id="generator-tab">
+        <main>
+          <div class="form-group">
+            <label for="name-input">Nama</label>
+            <input 
+              type="text" 
+              id="name-input" 
+              placeholder="Masukkan nama Anda..." 
+              aria-label="Nama Anda"
+            />
+          </div>
+          
+          <button class="button" id="generate-btn">
+            <i class="fas fa-magic"></i> Buat Ucapan
+          </button>
+          
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Sedang membuat ucapan...</p>
+          </div>
+          
+          <div class="result-area">
+            <div class="message-preview" id="message-preview"></div>
+            <div class="character-count" id="character-count">0 karakter</div>
+            
+            <button class="button secondary" id="copy-btn">
+              <i class="fas fa-copy"></i> Salin Teks
+            </button>
+            
+            <div class="copy-status" id="copy-status"></div>
+          </div>
+        </main>
+      </div>
+      
+      <div class="tab-content" id="history-tab">
+        <h2>Riwayat Ucapan</h2>
+        <p>Ucapan yang telah Anda buat akan muncul di sini.</p>
+        <div class="history-container" id="history-container">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = {
+        nameInput: document.getElementById('name-input'),
+        generateBtn: document.getElementById('generate-btn'),
+        messagePreview: document.getElementById('message-preview'),
+        characterCount: document.getElementById('character-count'),
+        copyBtn: document.getElementById('copy-btn'),
+        copyStatus: document.getElementById('copy-status'),
+        loadingEl: document.getElementById('loading'),
+        historyContainer: document.getElementById('history-container')
+      };
+
+      for (const [key, element] of Object.entries(elements)) {
+        if (!element) {
+          console.error(`Element with id '${key}' not found`);
+          return; 
+        }
+      }
+
+      let messageHistory = JSON.parse(localStorage.getItem('ramadhanMessages') || '[]');
+      
+      updateHistoryDisplay();
+      
+      elements.generateBtn.addEventListener('click', generateMessage);
+      elements.nameInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          generateMessage();
+        }
+      });
+      elements.copyBtn.addEventListener('click', copyToClipboard);
+      
+      const tabs = document.querySelectorAll('.tab');
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabId = tab.getAttribute('data-tab');
+          
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === `${tabId}-tab`) {
+              content.classList.add('active');
+            }
+          });
+        });
+      });
+      
+      async function generateMessage() {
+        const name = elements.nameInput.value.trim();
+        if (!name) {
+          alert("Silakan masukkan nama terlebih dahulu!");
+          elements.nameInput.focus();
+          return;
+        }
+
+        elements.loadingEl.classList.add('visible');
+        elements.messagePreview.textContent = "";
+        
+        const apiUrl = `/generate-message?name=${encodeURIComponent(name)}`;
+        
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+
+          elements.loadingEl.classList.remove('visible');
+
+          if (response.ok) {
+            const message = data.result.replace(/{nama user}/g, name);
+            
+            elements.messagePreview.textContent = message;
+            elements.characterCount.textContent = `${message.length} karakter`;
+            elements.copyStatus.innerText = '';
+            elements.copyStatus.classList.remove('visible');
+            
+            saveToHistory(name, message);
+          } else {
+            throw new Error(data.error || "Terjadi kesalahan saat menghasilkan pesan.");
+          }
+        } catch (error) {
+          console.error(error);
+          elements.loadingEl.classList.remove('visible');
+          elements.messagePreview.textContent = error.message || "Terjadi kesalahan jaringan. Silakan coba lagi.";
+        }
+      }
+      
+      function saveToHistory(name, message) {
+        const timestamp = new Date().toISOString();
+        const historyItem = {
+          name,
+          message,
+          timestamp
+        };
+        
+        messageHistory.unshift(historyItem);
+        
+        if (messageHistory.length > 10) {
+          messageHistory.pop();
+        }
+        
+        localStorage.setItem('ramadhanMessages', JSON.stringify(messageHistory));
+        
+        updateHistoryDisplay();
+      }
+      
+      function updateHistoryDisplay() {
+        elements.historyContainer.innerHTML = '';
+        
+        if (messageHistory.length === 0) {
+          elements.historyContainer.innerHTML = '<p>Belum ada ucapan yang disimpan.</p>';
+          return;
+        }
+        
+        messageHistory.forEach((item, index) => {
+          const date = new Date(item.timestamp);
+          const formattedDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+          
+          const historyItem = document.createElement('div');
+          historyItem.className = 'history-item';
+          historyItem.innerHTML = `
+            <p>${item.message.substring(0, 100)}${item.message.length > 100 ? '...' : ''}</p>
+            <div class="history-meta">
+              <span>Untuk: ${item.name}</span>
+              <span>${formattedDate}</span>
+            </div>
+          `;
+          
+          historyItem.addEventListener('click', () => {
+            elements.nameInput.value = item.name;
+            elements.messagePreview.textContent = item.message;
+            elements.characterCount.textContent = `${item.message.length} karakter`;
+            
+            tabs[0].click();
+          });
+          
+          elements.historyContainer.appendChild(historyItem);
+        });
+      }
+
+      function copyToClipboard() {
+        const message = elements.messagePreview.textContent;
+        if (!message) {
+          return;
+        }
+        
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(message)
+            .then(() => showCopySuccess())
+            .catch(err => {
+              console.error('Failed to copy: ', err);
+              fallbackCopyToClipboard();
+            });
+        } else {
+          fallbackCopyToClipboard();
+        }
+      }
+      
+      function fallbackCopyToClipboard() {
+        const textarea = document.createElement('textarea');
+        textarea.value = elements.messagePreview.textContent;
+        textarea.style.position = 'fixed';  
+        document.body.appendChild(textarea);
+        textarea.select();
+        
+        try {
+          document.execCommand('copy');
+          showCopySuccess();
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+          elements.copyStatus.innerText = 'Gagal menyalin teks!';
+          elements.copyStatus.classList.add('visible');
+        }
+        
+        document.body.removeChild(textarea);
+      }
+      
+      function showCopySuccess() {
+        elements.copyStatus.innerText = 'Teks berhasil disalin ke clipboard!';
+        elements.copyStatus.classList.add('visible');
+        
+        setTimeout(() => {
+          elements.copyStatus.classList.remove('visible');
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>
+

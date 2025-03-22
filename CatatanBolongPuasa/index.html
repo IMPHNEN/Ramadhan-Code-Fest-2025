@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Bolong Puasa</title>
+    <link rel="stylesheet" href="./src/out.css">
+</head>
+<body class="bg-neutral-900">
+
+    <div id="add" class="w-full h-screen bg-[rgba(0,0,0,0.5)] fixed top-0 z-10 hidden">
+        <form  onsubmit="SubmitEvent(event)" class=" w-100 h-70 bg-neutral-700 m-auto p-5 flex flex-col rounded-2xl">
+            <textarea name="input_alasan" id="input_alasan" class="w-full flex-1 text-white focus:outline-0 focus:border-0 resize-none" placeholder="Tulis seribu alasan" required></textarea>
+            <input type="date" name="input_date" id="input_date" class="text-white" required>
+            <button  type="submit" class="p-2 bg-pink-500 outline-0 rounded text-white my-4 hover:bg-pink-300">Tambah</button>
+        </form>
+    </div>
+
+
+    <div class="w-full flex  ">
+        <div class="w-[80%] min-w-[700px] h-[300px] mx-auto z-0">
+            <div class="w-full flex relative flex-col">
+                <h1 class="text-white text-3xl pt-8 font-bold">Daftar Bolong Puasa</h1>
+                <p class="text-neutral-300 text-sm py-2">Lengkapi Puasamu dengan meminimalisir bolong puasa, pastikan membayarnya</p>
+                <button onclick="showAdd()" class="px-4 py-2 cursor-pointer hover:bg-pink-400 rounded bottom-5 right-0 bg-pink-500 absolute text-white">Tambah List</button>
+            </div>
+            <div class="w-full h-max bg-neutral-800 my-10 rounded-2xl overflow-hidden pb-10">
+                <div class="min-h-20 flex items-center justify-end">
+                    <input onkeyup="Search(this)" class="border-1 border-neutral-300 py-3 px-5 rounded-md mx-5 text-white" placeholder="Search" type="text" name="search" id="search">
+                </div>
+                <div class="min-h-20 flex bg-neutral-700">
+                    <div class="w-20 justify-center h-20 flex items-center">
+                        <input id="select_top" onchange="handleCheckbox(this)" class="w-full  h-[30%] " type="checkbox" name="" id="">
+                    </div>
+                    <div class="flex-1 flex items-center">
+                        <p class="text-white font-bold">Alasan</p>
+                    </div>
+
+                    <div class="w-40 flex items-center">
+                        <p class="cursor-pointer  text-white font-bold/">Date</p>
+                    </div>
+                    <div class="w-30 flex">
+                        <button onclick="onALLDelete()" class="cursor-pointer text-red-400 hover:text-red-600">Delete</button>
+                    </div>
+                </div>
+
+            <div id="root"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
