@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Ramadan - Retro Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ramadan: {
+                dark: "#1e3a8a", // Deep blue
+                primary: "#3b82f6", // Medium blue
+                light: "#fff", // Light blue
+                accent: "#eab308", // Gold
+                green: "#166534", // Islamic green
+                purple: "#7e22ce", // Deep purple
+                night: "#1e293b", // Night sky
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-ramadan-night min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
+  >
+    <!-- Decorative Elements -->
+    <div class="moon absolute top-10 right-10 twinkle"></div>
+
+    <div class="star absolute top-20 left-20 w-6 h-6 twinkle-delay"></div>
+    <div class="star absolute top-40 left-40 w-4 h-4 twinkle"></div>
+    <div class="star absolute top-60 right-60 w-5 h-5 twinkle-delay"></div>
+    <div class="star absolute top-30 right-30 w-3 h-3 twinkle"></div>
+
+    <div class="lantern absolute top-10 left-1/4 twinkle-delay"></div>
+    <div class="lantern absolute top-36 right-1/4 twinkle"></div>
+
+    <div class="mosque opacity-30"></div>
+
+    <div class="w-full max-w-md relative z-10">
+      <div
+        class="border-4 border-ramadan-primary bg-ramadan-dark retro-shadow pattern-border"
+      >
+        <!-- Header -->
+        <div
+          class="bg-ramadan-primary text-white text-center border-b-4 border-ramadan-dark p-4 relative"
+        >
+          <div
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 bg-ramadan-accent rounded-full"
+          ></div>
+          <h1 class="font-pixel text-xl tracking-wide">Jadwal Puasa</h1>
+          <div
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 bg-ramadan-accent rounded-full"
+          ></div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 space-y-6">
+          <!-- City Select -->
+          <div class="space-y-4">
+            <label class="font-pixel text-ramadan-light block mb-2"
+              >Pilih Kota</label
+            >
+            <div class="custom-select-container">
+              <button
+                id="citySelectBtn"
+                class="w-full flex justify-between items-center bg-ramadan-night border-2 border-ramadan-primary text-white font-pixel p-3 rounded hover:bg-ramadan-primary hover:text-white"
+              >
+                <span id="selectedCityText">Memuat...</span>
+                <span class="ml-2 opacity-50">▼</span>
+              </button>
+              <div
+                id="citySelectDropdown"
+                class="hidden absolute w-full mt-1 bg-ramadan-night border-2 border-ramadan-primary rounded z-10"
+              >
+                <div class="p-2 border-b border-ramadan-primary">
+                  <input
+                    id="citySearchInput"
+                    type="text"
+                    placeholder="Cari kota..."
+                    class="w-full p-2 border border-ramadan-primary rounded font-pixel text-sm bg-ramadan-night text-white"
+                  />
+                </div>
+                <div id="cityOptions" class="custom-select-options">
+                  <!-- City options will be populated by JavaScript -->
+                  <div class="p-3 text-center">
+                    <div class="loading-spinner mx-auto"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date Select -->
+          <div class="space-y-4">
+            <label class="font-pixel text-ramadan-light block mb-2"
+              >Pilih Tanggal</label
+            >
+            <div class="custom-select-container">
+              <button
+                id="dateSelectBtn"
+                class="w-full flex justify-start items-center bg-ramadan-night border-2 border-ramadan-primary text-white font-pixel p-3 rounded hover:bg-ramadan-primary hover:text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                <span id="selectedDateText"></span>
+              </button>
+              <div
+                id="calendarDropdown"
+                class="hidden absolute w-full mt-1 bg-ramadan-night border-2 border-ramadan-primary rounded p-2 z-10"
+              >
+                <div class="flex justify-between items-center mb-2">
+                  <button
+                    id="prevMonthBtn"
+                    class="p-1 hover:bg-ramadan-primary rounded"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <span
+                    id="currentMonthYear"
+                    class="font-pixel text-sm text-white"
+                  ></span>
+                  <button
+                    id="nextMonthBtn"
+                    class="p-1 hover:bg-ramadan-primary rounded"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="custom-calendar font-pixel text-xs text-white">
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    M
+                  </div>
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    S
+                  </div>
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    S
+                  </div>
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    R
+                  </div>
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    K
+                  </div>
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    J
+                  </div>
+                  <div class="text-center p-1 font-bold text-ramadan-accent">
+                    S
+                  </div>
+                  <!-- Calendar days will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prayer Times Display -->
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div
+              class="bg-ramadan-night border-2 border-ramadan-primary p-4 rounded text-center retro-shadow-sm relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-1 bg-ramadan-accent"
+              ></div>
+              <h3 class="font-pixel text-ramadan-light mb-2">Imsak</h3>
+              <div class="flex items-center justify-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-ramadan-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span id="imsakTime" class="text-2xl font-pixel text-white"
+                  >--:--</span
+                >
+              </div>
+              <div
+                class="absolute bottom-0 left-0 w-full h-1 bg-ramadan-accent"
+              ></div>
+            </div>
+            <div
+              class="bg-ramadan-night border-2 border-ramadan-primary p-4 rounded text-center retro-shadow-sm relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-1 bg-ramadan-accent"
+              ></div>
+              <h3 class="font-pixel text-ramadan-light mb-2">Buka</h3>
+              <div class="flex items-center justify-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-ramadan-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span id="iftarTime" class="text-2xl font-pixel text-white"
+                  >--:--</span
+                >
+              </div>
+              <div
+                class="absolute bottom-0 left-0 w-full h-1 bg-ramadan-accent"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Status Message -->
+          <div
+            id="statusMessage"
+            class="hidden mt-4 p-3 bg-ramadan-primary border-2 border-ramadan-dark rounded text-center font-pixel text-sm text-white"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Decorative bottom border -->
+      <div
+        class="h-4 bg-ramadan-primary mt-2 rounded-b-lg pattern-border"
+      ></div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

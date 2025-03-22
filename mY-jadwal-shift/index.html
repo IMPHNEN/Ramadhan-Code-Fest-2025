@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+    <title>mY jadwal shift</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="./dom-to-image.js"></script>
+    <style type="text/tailwindcss">
+        table { @apply w-full font-medium;}
+        td, th {@apply border-x-2 first:border-s-0 last:border-e-0 border-black h-8;}
+        td { @apply border-t-2 text-center p-2;}
+        th { @apply border-b-2}
+        .sunday { @apply bg-red-500 text-white; }
+        .btn {@apply bg-neutral-100 px-1 text-center sm:w-28 border-2 border-s-white border-t-white cursor-pointer;}
+        .day{@apply w-10;}
+        .ripple {
+            background-color: #e5e5f7;
+            background-image: radial-gradient(circle at center center, #444cf7, #00f7ff), repeating-radial-gradient(circle at center center, #00d9ff, #444cf7, 10px, transparent 20px, transparent 10px);
+            background-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn fixed top-0 right-0 !w-40 m-4 z-1" onclick="downloadImage()">Download Image</div>
+    <div id="jadwal" class="relative h-screen">
+        <img class="absolute h-full w-full -z-1 object-cover" src="./wallpaper.jpg" alt="">
+        <div class="h-full overflow-y-auto">
+
+            <div class="flex p-4 gap-4 flex-col md:flex-row">
+                <div class="flex p-2 gap-2 me-auto md:me-0" style="background-color: aqua;">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div class="btn"><u>P</u>ersonal</div>
+                        <div class="btn"><u>G</u>roup</div>
+                        <div class="btn">Gam<u>e</u></div>
+                        <div class="btn">Pake<u>t</u></div>
+                        <div class="btn"><u>M</u>ember</div>
+                        <div class="btn">P<u>r</u>e-Paid</div>
+                        <div class="btn"><u>A</u>dmin #1</div>
+                        <div class="btn">Panduan</div>
+                    </div>
+                    <div class="flex flex-col accent-black">
+                        <div class="">WS - 2</div>
+                        <div class="">Time Warning</div>
+                        <div class="cursor-pointer flex">
+                            <input class="cursor-pointer" checked type="radio" name="ws" id="ws1">
+                            <label class="cursor-pointer ps-1" for="ws1">Tidak [No]</label>
+                        </div>
+                        <div class="cursor-pointer flex">
+                            <input class="cursor-pointer" type="radio" name="ws" id="ws2">
+                            <label class="cursor-pointer ps-1" for="ws2">Menit 30</label>
+                        </div>
+                        <div class="cursor-pointer flex">
+                            <input class="cursor-pointer" type="radio" name="ws" id="ws3">
+                            <label class="cursor-pointer ps-1" for="ws3">Menit 60</label>
+                        </div>
+                        <div class="cursor-pointer flex">
+                            <input type="radio" name="ws" id="ws4">
+                            <div class="flex">
+                                <label class="cursor-pointer ps-1" for="ws4">Menit</label>
+                                <input class="ms-0.5 me-auto bg-white w-9 h-6 ps-0.5 outline-none border-2" type="text" value="45">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color: #0000ff;" class="md:w-96 flex flex-col">
+                    <div class="ripple text-white p-2 me-auto">
+                        <div class="text-2xl text-white">BillingExplorer.Com</div>
+                        <div class="text-xl text-lime-400 ps-24">DeskPro6 2007</div>
+                    </div>
+                    <div class="text-blue-700 bg-white px-2 grow">
+                        <div class="font-serif text-lg leading-3 pt-2">mY jadwal shift</div>
+                        <div class="flex flex-col leading-4 py-1">
+                            <div id="title"></div>
+                            <div id="date"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 md:mt-52">
+                <div id="schedule-container" class="rounded-xl overflow-hidden border-2 bg-white border-black shadow-2xl"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden" id="output"></div>
+
+    <script>
+        const scheduleData = {
+            "members": [
+                { "name": "adit", "schedule": "CMCLPPPMCMCLPPPMCMCLPPPMCMCLPPP" },
+                { "name": "sopo", "schedule": "PPMCMCLPPPMCMCLPPPMCMCLPPPMCMCL" },
+                { "name": "jarwo", "schedule": "PPPMCMCLPPPMCMCLPPPMCMCLPPPMCMC" },
+                { "name": "denis", "schedule": "MCLPPPMCMCLPPPMCMCLPPPMCMCLPPPM" },
+            ],
+            "title": "jadwal kerja rodi divisi IMPHNEN",
+            "date": "Maret 2025",
+            "first_sunday_in": 2,
+            "desc": [
+                { "P": "P", "background_color": "#FFFF00", "text_color": "#000000" },
+                { "S": "S", "background_color": "#FFFF00", "text_color": "#000000" },
+                { "M": "M", "background_color": "#fb2c36", "text_color": "#FFFFFF" },
+                { "C": "LM", "background_color": "#007ef9", "text_color": "#FFFFFF" },
+                { "L": "L", "background_color": "#007ef9", "text_color": "#FFFFFF" }
+            ]
+        };
+
+        const descLookup = scheduleData.desc.reduce((acc, item) => {
+            const key = Object.keys(item)[0];
+            acc[key] = { 
+                label: item[key], 
+                background: item.background_color, 
+                text: item.text_color 
+            };
+            return acc;
+        }, {});
+
+        document.getElementById('title').textContent = scheduleData.title;
+        document.getElementById('date').textContent = scheduleData.date;
+
+        const numDays = scheduleData.members[0].schedule.length;
+        const firstSunday = scheduleData.first_sunday_in;
+
+        let tableHTML = '<table>';
+        tableHTML += '<tr><th>No</th><th>Nama</th>';
+        for (let day = 1; day <= numDays; day++) {
+            const isSunday = (day - firstSunday) % 7 === 0;
+            tableHTML += `<th class="day ${isSunday ? 'sunday' : ''}">${day}</th>`;
+        }
+        tableHTML += '</tr>';
+
+        scheduleData.members.forEach((member, index) => {
+            tableHTML += `<tr><td class="day">${index + 1}</td><td>${member.name}</td>`;
+            for (let i = 0; i < member.schedule.length; i++) {
+                const shiftCode = member.schedule[i];
+                const shift = descLookup[shiftCode] || { label: shiftCode, background: '#fff', text: '#000' };
+                tableHTML += `<td class="day" style="background-color:${shift.background}; color:${shift.text};">${shift.label}</td>`;
+            }
+            tableHTML += '</tr>';
+        });
+
+        tableHTML += '</table>';
+        document.getElementById('schedule-container').innerHTML = tableHTML;
+
+        function downloadBase64Image(base64String, filename = "mYjadwal.png") {
+            const byteCharacters = atob(base64String.split(',')[1]);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: 'image/png' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadImage() {
+            jadwal.style.width = "1920px";
+            jadwal.classList.add("aspect-video");
+            jadwal.classList.remove("h-screen");
+            var node = document.getElementById('jadwal');
+            domtoimage.toPng(node)
+                .then(function (dataUrl) {
+                    var img = new Image();
+                    var imgElement;
+                    img.src = dataUrl;
+                    const outputContainer = document.getElementById('output');
+                    outputContainer.innerHTML = '';
+                    outputContainer.appendChild(img);
+                    imgElement = outputContainer.querySelector('img');
+                    imgElement.classList.add('h-screen');
+                    downloadBase64Image(dataUrl);
+                })
+                .catch(function (error) {
+                    console.error('oops, something went wrong!', error);
+                    setTimeout(() => {
+                        jadwal.style.width = "";
+                        jadwal.classList.remove("aspect-video");
+                        jadwal.classList.add("h-screen");
+                    }, 1000);
+                });
+                setTimeout(() => {
+                    jadwal.style.width = "";
+                    jadwal.classList.remove("aspect-video");
+                        jadwal.classList.add("h-screen");
+                }, 1000);
+        }
+    </script>
+</body>
+</html>

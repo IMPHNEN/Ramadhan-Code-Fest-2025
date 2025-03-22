@@ -1,0 +1,7 @@
+# mengabaikan semua folder __pycache__ di dalam proyek
+__pycache__/
+
+# mengabaikan semua file __pycache__ python
+*.pyc
+*.pyo 
+*.pyd

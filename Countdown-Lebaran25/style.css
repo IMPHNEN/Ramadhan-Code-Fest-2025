@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('background.webp') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 90%; 
+    max-width: 600px; 
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+#countdown {
+    font-size: 1.8em;
+    font-weight: bold;
+    background: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 100%;
+    max-width: 500px; 
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.celebrate {
+    font-size: 2.5em;
+    color: #ffcc00;
+    animation: fadeIn 1.5s ease-in-out infinite alternate;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    #countdown {
+        font-size: 1.5em;
+        padding: 12px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .overlay {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    #countdown {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+}

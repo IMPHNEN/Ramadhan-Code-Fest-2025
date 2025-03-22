@@ -1,0 +1,3898 @@
+/*------------------------------------------------------------------
+Project: Zodio
+Author: The_Krishna
+Last change: 11/02/2025
+Primary use:
+------------------------------------------------------------------ */
+/*-----------------------[Table of contents]------------------------
+1.Default CSS
+2.Preloader CSS
+2.Preloader Two CSS
+3.Onboarding Screen CSS
+4.Lets Screen CSS
+5.Sign In Screen CSS
+6.Verify Number CSS
+7.Personal Infp Screen CSS
+8.Personal Information Loader Screen CSS
+9.Finger Print Screen CSS
+10.Face Recognition Screen CSS
+11.Girl Face Recognition Screen CSS
+12.Preferred language Screen CSS
+13.Choose Interests Screen CSS
+14.Forget Password Screen CSS
+15.Confirm OTP Screen CSS
+16.New Password Screen CSS
+17.Home Screen Setting CSS
+18.Home Screen One CSS
+19.Home Screen Two CSS
+20.Search Screen CSS
+21.Error 404 Screen CSS
+22.Filter Screen CSS
+23.Best Seller Screen CSS
+24.Categories Screen CSS
+25.Choose Brands Screen CSS
+26.Single Women Products Screen CSS
+27.Rating Review Screen CSS 
+28.Cart Screen CSS
+29.Promocodes Screen CSS
+30.Checkout Screen CSS
+31.Account Screen CSS
+32.My Orders Screen CSS
+33.Order Track Screen CSS
+34.Leave Review Screen CSS
+35.My Wallet Screen CSS
+36.Add New Card Screen CSS
+37.Notification Screen CSS
+38.Notification Options Screen CSS
+39.Language Select Screen CSS
+40.Currency Select Screen CSS
+41.About Screen CSS
+42.Contact Screen CSS
+43.FAQ Screen CSS
+------------------------------------------------------------------ */
+/*-----------------------[ 1.Default CSS ]------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+html {
+    scroll-behavior: smooth;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+ul {
+    padding-left: 0;
+}
+ul li {
+    list-style: none;
+}
+button {
+    border: none;
+}
+/* Chrome, Safari, Edge, Opera */
+* {
+    scrollbar-width: none
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+}
+body::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+.container {
+    width: 100%;
+    max-width: 100%;
+}
+.site_lr-spacer {
+    padding: 0 12px;
+}
+/*-----------------------[ 2.Preloader One CSS ]------------------------*/
+.page-loader {
+    max-width: 600px;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 10000;
+    overflow: hidden;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 12px;
+    background: #FFFFFF;
+}
+.splash-logo-box img {
+    max-width: 100%;
+    animation-name: hanging;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    transform-origin: center top;
+}
+@keyframes hanging {
+    0% {
+        transform: rotate(7deg);
+    }
+    100% {
+        transform: rotate(-7deg);
+    }
+}
+.logo-text {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    text-transform: uppercase;
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.logo-sub-text {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    position: relative;
+    z-index: 1;
+}
+.splash-logo-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.splash-img1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+.splash-img2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+}
+/*-----------------------[ 2.Preloader Two CSS ]------------------------*/
+div#page-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blob {
+    width: 100px;
+    display: grid;
+    background: #fff;
+}
+.blob:before,
+.blob:after {
+    content: "";
+    grid-area: 1/1;
+    width: 45px;
+    height: 45px;
+    background: #FE6601;
+    animation: blob-rhf26m 2s infinite;
+}
+.blob:after {
+    animation-delay: -1s;
+}
+@keyframes blob-rhf26m {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100%, 0);
+    }
+    50% {
+        transform: translate(100%, 100%);
+    }
+    75% {
+        transform: translate(0, 100%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+/*-----------------------[ 3.Onboarding Screen CSS ]------------------------*/
+.slide1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url(../images/splash-screen/onbording-img1.jpg);
+}
+.slide2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url(../images/splash-screen/onbording-img2.jpg);
+}
+.slide3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url(../images/splash-screen/onbording-img3.jpg);
+}
+.Onboarding-main {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+.boarding-title h2 {
+    color: #FFFFFF;
+    font-family: "League Spartan";
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+}
+.boarding-title p {
+    color: #FFFFFF;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    padding-top: 13px;
+}
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border-top: 0;
+    border-bottom: 0;
+    background: rgba(255, 255, 255, 0.24);
+}
+.carousel-indicators .active {
+    width: 28px !important;
+    height: 9px !important;
+    border-radius: 5px;
+    background: #FFF;
+}
+.Onboarding-Screen-1-full {
+    position: absolute;
+    bottom: 130px;
+    left: 0;
+    padding: 0 12px;
+}
+img.shape-spalsh-btn {
+    position: absolute;
+    right: -12px;
+}
+.onboarding-next-btn {
+    width: 48px;
+    height: 48px;
+    background: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 37px;
+    bottom: -84px;
+    cursor: pointer;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 47px;
+    left: -47px;
+    right: auto;
+    z-index: 2;
+}
+.skip_btn-onboading {
+    text-align: right;
+    padding-top: 15px;
+    padding-right: 4px;
+}
+.skip_btn-onboading a {
+    color: var(--1, #FFF);
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+/*-----------------------[ 4.Lets Screen CSS ]------------------------*/
+.lets-sec {
+    margin-bottom: 60px;
+}
+.lets-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/lets-you-screen/bg-img.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.nav-header {
+    padding-top: 20px;
+}
+.lets-u-text {
+    padding: 50px 0;
+    color: var(--1, #FFF);
+    font-family: "League Spartan";
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+}
+.media-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+}
+.let-media-icons {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #F5F5F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.or-section p {
+    overflow: hidden;
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 32px 0;
+}
+.or-section p:before {
+    right: 8px;
+    margin-left: -50%;
+}
+.or-section p:after {
+    left: 8px;
+    margin-right: -50%;
+}
+.or-section p:before,
+.or-section p:after {
+    background: #F5F5F5;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+.button-main a {
+    border-radius: 8px;
+    background: var(--4, #FE6601);
+    padding: 12px;
+    color: var(--1, #FFF);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    display: block;
+}
+.sing-in-up {
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background: white;
+    padding: 16px 12px;
+    z-index: 99;
+}
+.sing-in-up a {
+    color: #000;
+    font-weight: 600;
+}
+/*-----------------------[ 5.Sign In Screen CSS ]------------------------*/
+.email-pass-main {
+    display: flex;
+    align-items: center;
+    background: #F5F5F5;
+    padding: 12px;
+    border-radius: 8px;
+}
+.email-pass-main input {
+    border: none;
+    outline: none;
+    background: #F5F5F5;
+    width: 100%;
+    padding-left: 12px;
+    color: #555555;
+    font-family: League Spartan;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+#email-pass-main {
+    margin-top: 32px;
+    margin-bottom: 16px
+}
+.remember-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+.footer-checkbox-input+.footer-chec-txt {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+.footer-checkbox-input {
+    position: absolute;
+    opacity: 0;
+}
+.footer-checkbox-input:checked+.footer-chec-txt:before {
+    background: #FE6601;
+    border: none;
+}
+.footer-checkbox-input+.footer-chec-txt:before {
+    content: "";
+    display: inline-block;
+    vertical-align: text-top;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+}
+.footer-checkbox-input:checked+.footer-chec-txt:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+}
+.footer-chec-txt {
+    color: #707070;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.forget-btn a {
+    color: #000;
+    text-align: right;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+.email-pass-main-sub {
+    margin-top: 16px;
+}
+.signupBtn {
+    margin-top: 24px;
+}
+.iti-flag {
+    position: relative;
+}
+.intl-tel-input {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.intl-tel-input.separate-dial-code .selected-dial-code {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 28px;
+    display: none;
+}
+.intl-tel-input .selected-flag .iti-arrow::after {
+    content: url(../images/svg/down-blck-arrow.svg);
+    position: absolute;
+    top: -10px;
+    right: 7px;
+}
+.intl-tel-input .selected-flag .iti-arrow {
+    border: none;
+}
+.intl-tel-input .selected-flag {
+    padding: 0;
+}
+.intl-tel-input.separate-dial-code .selected-flag {
+    background: transparent;
+}
+/*-----------------------[ 6.Verify Number CSS ]------------------------*/
+.section-main-ver {
+    padding: 0 12px;
+    margin-bottom: 120px;
+}
+#top-header,
+#top-navbar {
+    background: #FFFFFF;
+    max-width: 600px;
+}
+.fixed {
+    position: fixed;
+    z-index: 101;
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    top: 0%;
+    -webkit-box-shadow: 0 0 22px -4px rgb(0 0 0 / 17%);
+    box-shadow: 0 0 22px -4px rgb(0 0 0 / 17%);
+    -webkit-animation: fixedheader 600ms ease 0ms 1 forwards;
+    animation: fixedheader 600ms ease 0ms 1 forwards;
+}
+@keyframes fixedheader {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.top-navbar2 {
+    border-bottom: 1px solid #F5F5F5;
+}
+.top-header-full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 0;
+}
+.header-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-title h1 {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+header#top-navbar {
+    padding: 0 12px 0 12px;
+}
+.img1-main {
+    text-align: center;
+    margin: 24px 0;
+}
+.img1-main img {
+    max-width: 100%;
+}
+.veri-text {
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.otp-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px 0 40px 0;
+}
+.otp-field input {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    border: transparent;
+    background: #F5F5F5;
+    outline: none;
+    transition: all 0.1s;
+    font-family: Jost;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: #000;
+}
+.otp-field input:focus {
+    border: 2px solid #FE6601;
+    background: transparent;
+}
+.otp-field input.filled {
+    border: 2px solid #000;
+    background: transparent;
+}
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.not-yet {
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.not-yet a {
+    color: var(--2, #000);
+    font-weight: 600;
+}
+.button-main.Verify-btn {
+    position: fixed;
+    bottom: 0;
+    width: 600px;
+    margin: 0 auto;
+    padding: 16px 12px 20px;
+    background: #FFFFFF;
+    z-index: 100;
+}
+/*-----------------------[ 7.Personal Infp Screen CSS ]------------------------*/
+.per-info-text-head {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    padding-bottom: 24px;
+}
+.profile-pic {
+    max-height: 200px;
+    display: inline-block;
+    max-width: 200px;
+    height: auto;
+    width: 100%;
+}
+.camera-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 120px;
+    margin: 0 auto;
+}
+.camera-img-main {
+    width: 40px;
+    height: 40px;
+    background: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 22px;
+    cursor: pointer;
+}
+.circle-img-girl {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 24px;
+}
+.file-upload {
+    display: none;
+}
+.form-item {
+    position: relative;
+    margin-bottom: 15px;
+}
+.form-item input:focus+label,
+.form-item input:valid+label {
+    font-size: 14px;
+    top: 3px;
+    font-weight: 500;
+    color: #FE6601 !important;
+}
+.personal-info-form .form-item input {
+    font-size: 18px;
+    color: #000000;
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background-color: #F5F5F5;
+    padding: 19px 16px;
+}
+.form-item .info-person {
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    top: 33%;
+    left: 5px;
+    padding: 0 10px;
+    color: #555555;
+    transition: all .3s ease;
+    font-family: Jost;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 16px;
+}
+#ui-datepicker-div {
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin-top: 0.25rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.ui-datepicker-calendar thead th {
+    padding: 0.25rem 0;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #78909C;
+}
+.ui-datepicker-calendar tbody td {
+    width: 2.5rem;
+    text-align: center;
+    padding: 0;
+}
+div#ui-datepicker-div {
+    z-index: 500 !important;
+}
+.ui-datepicker-calendar tbody td a {
+    display: block;
+    border-radius: 0.25rem;
+    line-height: 2rem;
+    transition: 0.3s all;
+    color: #546E7A;
+    font-size: 0.975rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+.ui-datepicker-calendar tbody td a:hover {
+    color: #FE6601;
+}
+.ui-datepicker-calendar tbody td a:hover {
+    background: rgba(254, 102, 1, 0.08);
+}
+.ui-datepicker-calendar tbody td a.ui-state-active {
+    background-color: #FE6601;
+    color: white;
+}
+.ui-datepicker-header a.ui-corner-all {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 2rem;
+    height: 0;
+    margin: 0.5rem;
+    border-radius: 0.25rem;
+    transition: 0.3s all;
+}
+span.ui-icon.ui-icon-circle-triangle-w,
+span.ui-icon.ui-icon-circle-triangle-e {
+    font-size: 15px;
+    color: #FE6601;
+    font-weight: 500;
+}
+a.ui-datepicker-next.ui-corner-all span.ui-icon.ui-icon-circle-triangle-e {
+    position: absolute;
+    right: -230px;
+}
+.ui-datepicker-title {
+    text-align: center;
+    line-height: 32px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.per-info-arrow-main {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 25px;
+}
+.per-info-arrow-main a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(254, 102, 1, 0.08);
+    border-radius: 12px;
+}
+.per-info-arrow-main-sec {
+    justify-content: start;
+}
+/* Style for toggle buttons */
+.personal-info-sec-one,
+.personal-info-sec-two {
+    display: none;
+}
+.personal-info-sec-one.active,
+.personal-info-sec-two.active {
+    display: block;
+}
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+}
+.toggle-btn-per-info {
+    width: 36px;
+    height: 8px;
+    background-color: rgba(254, 102, 1, 0.09);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+.toggle-btn-per-info.active {
+    background-color: #FE6601;
+}
+/*-----------------------[ 8.Personal Information Loader Screen CSS ]------------------------*/
+.sk-fading-circle {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sk-fading-circle .sk-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.sk-fading-circle .sk-circle:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    height: 15%;
+    background-color: #000;
+    border-radius: 100%;
+    -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+    animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+}
+@keyframes sk-circleFadeDelay {
+    0%,
+    39%,
+    100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.sk-fading-circle .sk-circle2 {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.sk-fading-circle .sk-circle3 {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+.sk-fading-circle .sk-circle4 {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.sk-fading-circle .sk-circle5 {
+    -webkit-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.sk-fading-circle .sk-circle6 {
+    -webkit-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+.sk-fading-circle .sk-circle7 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.sk-fading-circle .sk-circle8 {
+    -webkit-transform: rotate(210deg);
+    -ms-transform: rotate(210deg);
+    transform: rotate(210deg);
+}
+.sk-fading-circle .sk-circle9 {
+    -webkit-transform: rotate(240deg);
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+.sk-fading-circle .sk-circle10 {
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.sk-fading-circle .sk-circle11 {
+    -webkit-transform: rotate(300deg);
+    -ms-transform: rotate(300deg);
+    transform: rotate(300deg);
+}
+.sk-fading-circle .sk-circle12 {
+    -webkit-transform: rotate(330deg);
+    -ms-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
+.sk-fading-circle .sk-circle2:before {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+.sk-fading-circle .sk-circle3:before {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+.sk-fading-circle .sk-circle4:before {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+.sk-fading-circle .sk-circle5:before {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+.sk-fading-circle .sk-circle6:before {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+.sk-fading-circle .sk-circle7:before {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+.sk-fading-circle .sk-circle8:before {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.sk-fading-circle .sk-circle9:before {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+.sk-fading-circle .sk-circle10:before {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+.sk-fading-circle .sk-circle11:before {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+.sk-fading-circle .sk-circle12:before {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+.modal {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.24) 100%);
+    backdrop-filter: blur(2px);
+    --bs-modal-bg: #FFF;
+}
+.modal-content {
+    border-radius: 24px;
+}
+.loader2 {
+    text-align: center;
+    margin-top: 32px;
+}
+.finger-modal-content .modal-body {
+    padding: 24px 16px;
+}
+.finger-img-sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.congratulations {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px;
+    padding: 15px 0;
+}
+.few-sec {
+    color: var(--3, #555);
+    font-family: Jost;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+}
+/*-----------------------[ 9.Finger Print Screen CSS ]------------------------*/
+.scan-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 40vh);
+    flex-direction: column;
+    gap: 30px;
+}
+.scan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../images/finger-print-screen/FingerPrintBorder.png);
+    width: 220px;
+    height: 220px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.scan .fingerprint {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background: url(../images/finger-print-screen/fingerPrint.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.scan .fingerprint::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/finger-print-screen/fingerPrint.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: animate 4s ease-in-out infinite;
+    filter: brightness(0) saturate(100%) invert(39%) sepia(92%) saturate(1292%) hue-rotate(359deg) brightness(99%) contrast(106%);
+}
+@keyframes animate {
+    0%,
+    100% {
+        height: 0%;
+    }
+    50% {
+        height: 100%;
+    }
+}
+.scan .fingerprint::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #FE6601;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 20px #FE6601) drop-shadow(0 0 60px #FE6601);
+    animation: animate_line 4s ease-in-out infinite;
+}
+@keyframes animate_line {
+    0%,
+    100% {
+        top: 0%;
+    }
+    50% {
+        top: 100%;
+    }
+}
+.secure {
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 24px 0;
+}
+.do-later-btn {
+    text-align: center;
+    padding-top: 30px;
+}
+.do-later-btn a {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.finger-screen-btn {
+    position: fixed;
+    bottom: 0;
+    width: 600px;
+    margin: 0 auto;
+    padding: 16px 12px 20px;
+    background: #FFFFFF;
+    z-index: 100;
+}
+/*-----------------------[ 10.Face Recognition Screen CSS ]------------------------*/
+.status__icon {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FE6601;
+    border-radius: 100%;
+    position: relative;
+}
+.status__icon img {
+    z-index: 1000;
+}
+.status__icon::after,
+.status__icon::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #989898;
+    border-radius: 100%;
+    z-index: -100;
+}
+.status__icon:after {
+    animation: pulse 3s linear infinite;
+}
+.status__icon:before {
+    animation: pulse 3s 1s linear infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+@keyframes pulse-shadow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 245, 245, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 calc(2 * 3rem) rgba(255, 0, 60, 0);
+    }
+}
+/*-----------------------[ 11.Girl Face Recognition Screen CSS ]------------------------*/
+.face-landmarks {
+    background-image: url(../images/finger-print-screen/face-recong-girl.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+.EnableFace {
+    position: absolute;
+    width: 100%;
+    padding: 24px 12px;
+    color: #000;
+}
+.Subtract {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.face-scanner-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-40%, -100%);
+    width: 100%;
+    max-width: 120px;
+    animation: blinker 1.5s linear infinite;
+}
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+.loader-face-scan-main {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.loader-digit {
+    color: var(--4, #FE6601);
+    text-align: center;
+    font-family: Jost;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    padding-bottom: 16px;
+}
+.ver-face-text {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    animation: blinker 1.5s linear infinite;
+}
+/*-----------------------[ 12. Preferred language Screen CSS ]------------------------*/
+.skip-header-btn {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    line-height: 24px;
+}
+.hey-jessica {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    padding: 24px 0 16px 0;
+}
+.facilitate {
+    text-align: left;
+    padding: 0;
+}
+.select-lang-sec {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 32px;
+}
+label.custom-radio-sel-lang {
+    padding: 11px 16px;
+    border: 2px solid #F5F5F5;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #000;
+    text-align: center;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+.lang-sec input[type="radio"] {
+    display: none;
+}
+.lang-sec input[type="radio"]:checked+label {
+    background: #000;
+    border-radius: 4px;
+    color: #FFF;
+    border: 2px solid transparent;
+}
+/*-----------------------[ 13.Choose Interests Screen CSS ]------------------------*/
+.intere {
+    padding-top: 24px;
+}
+.lang-sec input[type="checkbox"] {
+    display: none;
+}
+.lang-sec input[type="checkbox"]:checked+label {
+    background: #000000;
+    border-radius: 4px;
+    color: #FFF;
+    border: 2px solid transparent;
+}
+.account-created-text {
+    text-align: center;
+    padding-top: 0;
+}
+.img6 {
+    padding-top: 30px;
+}
+/*-----------------------[ 14.Forget Password Screen CSS ]------------------------*/
+.mobile-message-main {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(254, 102, 1, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#forget-password .form-item {
+    position: relative;
+    margin-top: 24px;
+}
+#forget-password .form-item input:focus+label,
+#forget-password .form-item input:valid+label {
+    font-size: 14px;
+    top: 3px;
+    font-weight: 500;
+    color: #FE6601 !important;
+}
+#forget-password .form-item input:focus {
+    border: 2px solid #FE6601;
+}
+#forget-password .form-item input {
+    font-size: 18px;
+    color: #000000;
+    background: transparent;
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    padding: 16px 16px 16px 75px;
+    border: 2px solid var(--9, #F5F5F5);
+    height: 80px;
+}
+#forget-password .info-person {
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    top: 33%;
+    left: 65px;
+    padding: 0 10px;
+    color: #555555;
+    transition: all .3s ease;
+    font-family: Jost;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 16px;
+}
+/*-----------------------[ 15.Confirm OTP Screen CSS ]------------------------*/
+.block-footer {
+    color: var(--3, #555);
+    font-family: Jost;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 24px;
+    padding-bottom: 25px;
+}
+#countdowntimer {
+    font-weight: 700;
+    color: #000;
+}
+#countdowntimer::after {
+    content: ' Sec';
+}
+/*-----------------------[ 16.New Password Screen CSS ]------------------------*/
+#New-password .form-item {
+    position: relative;
+    margin-top: 24px;
+}
+#New-password .form-item input:focus+label,
+#New-password .form-item input:valid+label {
+    font-size: 14px;
+    top: 3px;
+    font-weight: 500;
+    color: #FE6601 !important;
+}
+#New-password .form-item input {
+    font-size: 18px;
+    color: #000000;
+    background: #F5F5F5;
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    padding: 20px 16px;
+    border: 2px solid var(--9, #F5F5F5);
+    height: 64px;
+}
+#New-password .form-item .eye-off {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#New-password .info-person {
+    position: absolute;
+    cursor: text;
+    z-index: 2;
+    top: 33%;
+    left: 10px;
+    padding: 0 10px;
+    color: #555555;
+    transition: all .3s ease;
+    font-family: Jost;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 16px;
+}
+/*-----------------------[ 17.Home Screen Setting CSS ]------------------------*/
+.offcanvas-header {
+    border-bottom: 2px solid #F5F5F5;
+}
+.home-setting-icons-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 2px solid #F5F5F5;
+}
+.setting-opestion-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.setting-icons-main {
+    width: 48px;
+    height: 48px;
+    background: rgba(254, 102, 1, 0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.new-notification {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.btn-close {
+    --bs-btn-close-focus-shadow: none;
+    --bs-btn-close-opacity: 1;
+}
+.offcanvas-title {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+/*-----------------------[ 18.Home Screen One CSS ]------------------------*/
+.shop-ad-card {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    padding: 16px;
+    border-radius: 16px;
+    margin: 0px 8px 0 8px;
+}
+.shop-ad-card-img1 {
+    background-image: url('../images/home-screen/cap-man-img1.jpg');
+}
+.shop-ad-card-img2 {
+    background-image: url('../images/home-screen/cap-man-img2.jpg');
+}
+.shop-ad-card-img3 {
+    background-image: url('../images/home-screen/cap-man-img3.jpg');
+}
+.shop-ad-card-img4 {
+    background-image: url('../images/home-screen/cap-man-img4.jpg');
+}
+.shop-ad-card-img6 {
+    background-image: url('../images/home-screen/cap-man-img6.jpg');
+}
+.shop-ad-card-img7 {
+    background-image: url('../images/home-screen/cap-man-img7.jpg');
+}
+.season {
+    color: var(--1, #FFF);
+    font-family: "League Spartan";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    padding-bottom: 8px;
+    max-width: 220px;
+}
+.disc {
+    color: var(--1, #FFF);
+    font-family: Jost;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.ShopNowBtn a {
+    margin-top: 32px;
+    display: inline-block;
+}
+.shop-card {
+    position: relative;
+}
+.shop-card ul.slick-dots {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+}
+.shop-card ul.slick-dots button {
+    font-size: 0;
+    color: #000;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #FFF;
+}
+.shop-card li.slick-active button {
+    width: 24px;
+    height: 8px;
+    background-color: #FFF;
+    border-radius: 15px;
+    border: none;
+}
+.search-bar-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 12px;
+    border-radius: 8px;
+    background: var(--9, #F5F5F5);
+    margin: 24px 0;
+}
+.search-bar-main input {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: var(--9, #F5F5F5);
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
+/* ------------- Categories -------------*/
+.categories-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0 16px 0;
+}
+.categories {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+}
+.view-all-arrow {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(0%) saturate(1503%) hue-rotate(153deg) brightness(99%) contrast(92%);
+}
+.view-all-text {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.categories-slider {
+    margin-left: 12px;
+}
+.categories-slider-head {
+    margin: 0 8px 0 8px;
+    text-align: center;
+}
+.categories-img-oval {
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    width: 100%;
+    max-width: 100px;
+    margin-bottom: 12px;
+}
+.categories-img-oval img {
+    position: relative;
+    bottom: -3px;
+}
+.categories-img1 {
+    background: #A9EFFF;
+}
+.categories-img2 {
+    background: #FFBF9B;
+}
+.categories-img3 {
+    background: #FFB9BC;
+}
+.categories-img4 {
+    background: #FFD885;
+}
+.categories-img5 {
+    background: #BAB9FF;
+}
+.categories-img6 {
+    background: #CDFF9B;
+}
+.categories-img7 {
+    background: #CBC6CA;
+}
+.categories-img8 {
+    background: #FF9BE9;
+}
+.categories-img9 {
+    background: #C7B09E;
+}
+.categories-name {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.categories-items {
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+/* ------------- Featured -------------*/
+.featured-slider-head {
+    margin: 0 8px 0 8px;
+}
+.featured-img-box {
+    height: 160px;
+    border-radius: 8px;
+    background: var(--9, #F5F5F5);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+.featured-img-box img {
+    mix-blend-mode: darken;
+    max-width: 100%;
+}
+.like-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FFF;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.heart-icon {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    fill: none;
+    stroke: #555555;
+    stroke-width: 3;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+.heart-icon.filled {
+    fill: red;
+    stroke: red;
+}
+.featured-prod-name {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.featured-prod-price {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+.featured-prod-dmain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 8px;
+}
+.featured-prod-rating {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+}
+.featured-prod-rating::before {
+    content: url('../images/svg/star-orng.svg');
+}
+/* ------------- shop-ad-card2 -------------*/
+.shop-ad-card2 {
+    margin: 24px 0 0 0;
+    border-radius: 0;
+    padding: 32px 16px;
+}
+#shop-ad-card-second ul.slick-dots {
+    position: absolute;
+    right: 25px;
+    bottom: 33px;
+}
+/* ------------- Logo Brand -------------*/
+.brand-slider .featured-img-box {
+    width: 100%;
+    max-width: 120px;
+    height: 64px;
+    margin-bottom: 0;
+    padding: 12px;
+}
+.brand-slider {
+    margin-left: 12px;
+}
+.brand-slider.featured-slider-head {
+    margin: 0 8px 12px 8px;
+}
+/* ------------- Best Sellers -------------*/
+.best-sellers-slider {
+    margin-left: 12px;
+    margin-bottom: 24px;
+}
+.best-sellers-slider .featured-img-box {
+    max-width: 200px;
+    height: 220px;
+}
+.pluse-sign-box {
+    width: 48px;
+    height: 48px;
+    background: #000;
+    border-radius: 8px 0 8px 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pluse-sign-box img {
+    mix-blend-mode: normal;
+}
+.sale-stamp {
+    color: var(--1, #FFF);
+    text-align: center;
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    padding: 8px;
+    border-radius: 4px;
+    background: #FF373C;
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+}
+.Shor {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.featured-prod-price span {
+    color: var(--3, #555);
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration-line: line-through;
+    padding-left: 8px;
+}
+/* ------------- New Arrivals -------------*/
+.tab-btn-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+    overflow: auto;
+    margin-left: 12px;
+}
+.tab-btn-main::-webkit-scrollbar {
+    display: none;
+}
+.tabContainer {
+    margin-left: 0;
+    margin-right: 0;
+    overflow: hidden;
+    position: relative;
+}
+.tab-btn {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    border-radius: 12px;
+    border: 2px solid #000;
+    padding: 7px 12px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.new-arrivals {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.Tabcondent {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    opacity: 0;
+    transition: all ease-in-out 0.3s;
+}
+.tab-btn.tab-active,
+.tab-btn:hover {
+    background: #000;
+    color: #FFF;
+}
+.Tabcondent.tab-active {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-radius: 0px;
+    transition: all ease-in-out 0.6s;
+    margin: 0 auto;
+    position: relative;
+}
+.new-arrivals .featured-img-box {
+    width: 100%;
+    height: auto;
+    cursor: auto;
+}
+.pluse-sign-box-arrivals {
+    width: 32px;
+    height: 32px;
+}
+.like-btn-new-arrivals {
+    width: 26px;
+    height: 26px;
+    top: 4px;
+    right: 4px;
+}
+.like-btn-new-arrivals .heart-icon {
+    width: 16px;
+    height: 16px;
+}
+.Shor-arrivals {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 1100px;
+}
+.featured-prod-price-arrivals {
+    padding: 12px 0;
+}
+/* ------------- Home Scrren Footer -------------*/
+.bottom-menu-svg-main {
+    position: relative;
+}
+.bottom-menu-svg {
+    position: fixed;
+    bottom: -40px;
+    z-index: 100;
+}
+.gol3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background-color: #000000;
+    border-radius: 50%;
+    z-index: 1001;
+    bottom: 100px;
+}
+.add-to-cart-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+.home-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom-menu-svg-design {
+    max-width: 600px;
+    height: 160px;
+    width: 100%;
+    background: #FFF;
+}
+.navigation {
+    position: fixed;
+    bottom: 25px;
+    z-index: 100;
+    width: 100%;
+    padding: 0 32px;
+    max-width: 600px;
+}
+.navigation .listWrap {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+li.list.active {
+    position: relative;
+}
+li.list.active .white-circle {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -22px;
+    left: -4px;
+    filter: blur(12px);
+}
+.navigation .listWrap li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.navigation .listWrap li:active a .icon,
+.navigation .listWrap li.active a .icon {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(93%) saturate(1634%) hue-rotate(1deg) brightness(100%) contrast(101%);
+    transform: translateY(-20px);
+}
+.navigation .listWrap li a .icon {
+    position: relative;
+    display: block;
+    text-align: center;
+    transition: 0.5s;
+    color: #FFF;
+}
+.navigation .listWrap li:active a .text,
+.navigation .listWrap li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+}
+.navigation .listWrap li a .text {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FE6601;
+    transition: 0.5s;
+    transform: translateY(20px);
+    opacity: 0;
+    z-index: 1;
+}
+/*-----------------------[ 19.Home Screen Two CSS ]------------------------*/
+.home-screen2ShopCard .shop-ad-card {
+    margin: 0;
+    border-radius: 0 0 32px 32px;
+    padding: 150px 16px 24px;
+}
+.shop-ad-card-page2img1 {
+    background-image: url('../images/home-screen/home2Slider-img1.jpg');
+}
+.shop-ad-card-page2img2 {
+    background-image: url('../images/home-screen/home2Slider-img2.jpg');
+}
+.shop-ad-card-page2img3 {
+    background-image: url('../images/home-screen/home2Slider-img3.jpg');
+}
+.shop-ad-card-page2img4 {
+    background-image: url('../images/home-screen/home2Slider-img4.jpg');
+}
+/* Top Categories */
+.mind-items {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.item-name-box {
+    width: 74px;
+    height: 102px;
+    border-radius: 37px 37px 4px 4px;
+    border: 2px solid #F5F5F5;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.16);
+}
+.item-name-box-sub {
+    width: 64px;
+    height: 64px;
+    background-color: #F5F5F5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 4px 8px 3px;
+}
+.item-name-box-name {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+}
+.shop-ad-card-img5 {
+    background-image: url('../images/home-screen/cap-man-img5.jpg');
+}
+/*-----------------------[ 20.Search Screen CSS ]------------------------*/
+.Tabcondent-search-screen .Tabcondent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.Tabcondent-search-screen .new-arrivals {
+    flex-direction: column;
+    margin-bottom: 0;
+}
+.Tabcondent-search-screen .new-arrivals .featured-img-box {
+    flex-direction: column;
+    margin-bottom: 0;
+}
+.Tabcondent-search-screen .rating-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+/*-----------------------[ 21.Error 404 Screen CSS ]------------------------*/
+.erorScrren {
+    text-align: center;
+}
+.erorScrren img {
+    margin-top: 24px;
+    max-width: 100%;
+}
+.keyword {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding-top: 12px;
+}
+/*-----------------------[ 22.Filter Screen CSS ]------------------------*/
+.container-heeh {
+    margin-top: 50px;
+}
+.container-heeh .price-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.container-heeh .slider {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: #F5F5F5;
+    border-radius: 5px;
+}
+.container-heeh .slider input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: transparent;
+    pointer-events: none;
+    outline: none;
+}
+.container-heeh .slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #FE6601;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.container-heeh .slider input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #FE6601;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.container-heeh .slider::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: #FE6601;
+    border-radius: 5px;
+    left: var(--left);
+    right: calc(100% - var(--right));
+}
+.container-heeh .price-label {
+    position: absolute;
+    top: -38px;
+    transform: translateX(-100%);
+    color: var(--1, #FFF);
+    text-align: center;
+    font-family: Jost;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background-image: url(../images/svg/price-bg.svg);
+    background-size: cover;
+    background-position: center;
+    width: 34px;
+    height: 25px;
+    padding-top: 3px;
+}
+.container-heeh #min-price {
+    left: var(--left);
+    margin-left: 30px;
+}
+.container-heeh #max-price {
+    left: var(--right);
+    margin-right: 20px;
+}
+.filter-sales-btn-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    gap: 10px;
+    margin-top: 24px;
+}
+.filter-sales-btn {
+    color: #000;
+    text-align: center;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+.filter-sales-btn.active {
+    background-color: #000;
+    color: #FFF;
+}
+.review-desc {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    padding-right: 16px;
+    overflow: auto;
+    gap: 12px;
+}
+.custom-radio-sel-review {
+    padding: 5px 12px;
+    border-radius: 18px;
+    border: 2px solid #000;
+    cursor: pointer;
+    color: #000;
+    text-align: center;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    display: inline-flex;
+}
+.review-sec input {
+    display: none;
+}
+.review-star {
+    margin-right: 4px;
+}
+.review-sec input[type="radio"]:checked+label {
+    border-radius: 18px;
+    background: #000;
+    color: #FFF;
+}
+/*-----------------------[ 23.Best Seller Screen CSS ]------------------------*/
+.filterSvg2-main {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.sorting,
+.filterSvg2-main h2 {
+    font-weight: 600;
+}
+.verify-section-main {
+    border-bottom: 1px solid #F5F5F5;
+    padding: 16px 24px;
+}
+.wallet-text {
+    font-weight: 400;
+}
+.privacy_manage {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+.verify-section-main div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.form-check-input-radio {
+    border: 2px solid #000;
+    background-color: transparent;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+.form-check-input-radio:checked[type=radio] {
+    outline: 2px solid #000;
+    outline-offset: 4px;
+    background: #000;
+    width: 11px;
+    height: 11px;
+    margin-right: 5px;
+    border: 1px solid #000;
+}
+/*-----------------------[ 24.Categories Screen CSS ]------------------------*/
+.Categories-screen-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 16px 18px;
+    margin-top: 16px;
+}
+.Categories-screen-main .categories-slider-head {
+    margin: 0;
+}
+/*-----------------------[ 25.Choose Brands Screen CSS ]------------------------*/
+.ChooseBrands-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+.ChooseBrands-main .featured-img-box {
+    align-items: normal;
+    height: 80px;
+    padding: 12px;
+    margin-bottom: 0;
+}
+.ChooseBrands-main .featured-slider-head {
+    width: 100%;
+    margin: 0;
+}
+.brandLogo-name {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    padding-top: 8px;
+}
+.SpecialOffer1 {
+    margin-top: 16px;
+}
+/*-----------------------[ 26.Single Women Products Screen CSS ]------------------------*/
+.singfooter-cart {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(327deg) brightness(97%) contrast(100%);
+}
+.ad-cart-num {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FE6601;
+    border-radius: 50%;
+    color: var(--1, #FFF);
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 10px;
+    font-weight: 700;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+}
+.single-product-slider {
+    border-radius: 16px;
+    background: var(--7, #D9D9D9);
+    margin: auto;
+    margin: 16px 0;
+}
+.single-product-slider-img-main {
+    max-width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.single-product-slider-img-main img {
+    max-width: 100%;
+}
+.single-slick-arrow {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    position: absolute;
+    top: 45%;
+    z-index: 10;
+}
+.slick-prev {
+    left: 0;
+    border-radius: 0 8px 8px 0;
+}
+.slick-next {
+    right: 0;
+    border-radius: 8px 0 0 8px;
+}
+.georgette {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+}
+.raSpld {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.sold {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    border-radius: 4px;
+    background: var(--9, #F5F5F5);
+    padding: 3px 8px;
+}
+.rsplad-rw {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 0 16px 0;
+}
+.descr {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+.descr-main {
+    padding: 16px 0;
+    border-top: 2px solid #F5F5F5;
+    border-bottom: 2px solid #F5F5F5;
+}
+.text-container {
+    position: relative;
+}
+.truncated-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.read-more-checkbox {
+    display: none;
+}
+.read-more-btn {
+    color: #000;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-block;
+}
+.read-more-btn::after {
+    content: 'Read More';
+}
+.read-more-checkbox:checked~.truncated-text {
+    -webkit-line-clamp: unset;
+}
+.read-more-checkbox:checked~.read-more-btn::after {
+    content: 'Read Less';
+}
+.about-detail-main {
+    display: flex;
+    align-items: center;
+}
+.about-detail {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 160px;
+    width: 100%;
+}
+.about-detail:before {
+    content: "\2022";
+    font-size: 30px;
+    color: #555;
+    padding-right: 10px;
+    position: relative;
+    bottom: -8px;
+}
+.about-detail-info {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    width: 340px;
+}
+.about-detail-info::before {
+    content: ":";
+    color: #555;
+    margin-right: 30px;
+}
+.AdditionalInfo-main {
+    padding: 16px 0;
+    border-bottom: 2px solid #F5F5F5;
+}
+.size-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+.size-btn {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #F5F5F5;
+    color: var(--3, #555);
+    text-align: center;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    background: transparent;
+    border-radius: 50%;
+}
+.size-btn.active {
+    background: #000;
+    color: #FFF;
+}
+.cloths-color-sec {
+    display: flex;
+    column-gap: 8px;
+    margin-top: 12px;
+}
+.color-wrap label {
+    border-radius: 20px;
+    position: relative;
+}
+.color1 {
+    background: #FF7CA0;
+}
+.color2 {
+    background: #65D6BA;
+}
+.color3 {
+    background: #6570D6;
+}
+.color4 {
+    background: #ABD665;
+}
+.color5 {
+    background: #000000;
+}
+.color6 {
+    background: #FFB800;
+}
+.color7 {
+    background: #0094FF;
+}
+.color8 {
+    background: #61523C;
+}
+.color-wrap input[type="radio"] {
+    appearance: none;
+}
+.col-deatils {
+    height: 32px;
+    width: 32px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.color-wrap input[type="radio"]:checked:after {
+    opacity: 1;
+}
+.color-wrap input:after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/svg/check.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+.size-color-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 16px;
+    padding-bottom: 50px;
+}
+#addToCartButtonSingle {
+    box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.04);
+}
+.addToCartButtonSingle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+}
+.price-it span {
+    color: var(--4, #FE6601);
+    padding-left: 5px;
+}
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+.counter-button {
+    background-color: transparent;
+    border: 2px solid #F5F5F5;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    color: #555555;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter-button:hover {
+    background-color: #F5F5F5;
+}
+.counter-value {
+    margin: 0 8px;
+    width: 40px;
+    height: 24px;
+    border-radius: 4px;
+    background: var(--9, #F5F5F5);
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}
+.SingleShoewsSize {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+/*-----------------------[ 27.Rating Review Screen CSS ]------------------------*/
+.rating-review {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 16px 0;
+}
+.rating-review span {
+    font-weight: 400;
+}
+.customer-review-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.customer-review-main-sub {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 0 12px 0;
+}
+.customer-img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+.customer-name {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.cutomer-review-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px;
+}
+.review-reply {
+    color: var(--3, #555);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding-bottom: 8px;
+    font-family: Jost;
+}
+.helpful-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.helpful-main p {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+.like-dislike-main {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-right: 20px;
+}
+.like-dislike-btns {
+    background: transparent;
+}
+.like-dislike-btns span {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+/*-----------------------[ 28.Cart Screen CSS ]------------------------*/
+.shopNowCart {
+    margin-top: 32px;
+    margin-bottom: 40px;
+    padding: 0 12px;
+}
+.gol3.active {
+    background: #FE6601;
+}
+.cart-product-box-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 2px solid #F5F5F5;
+}
+.cart-product-box {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    background: var(--9, #F5F5F5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-product-box img {
+    mix-blend-mode: multiply;
+}
+.Knee-Long {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.knee-price {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+.kneeTile {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 12px 0;
+}
+.kneeTile p {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.cart-counter-container {
+    justify-content: left;
+}
+#promoCodeApply-Main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #F5F5F5;
+}
+#promoCodeApply {
+    border-radius: 8px;
+    width: 100%;
+}
+.PromoApplyBtn {
+    color: var(--1, #FFF);
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 97px;
+    height: 48px;
+    background: #000;
+    border-radius: 8px;
+}
+.subtotal {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+.discount,
+.delivery {
+    font-weight: 400;
+}
+.discount span {
+    color: var(--5, #4ADE80);
+}
+.delivery span {
+    color: #FF373C;
+}
+.subDis-main {
+    padding: 22px 0;
+    border-bottom: 2px solid #F5F5F5;
+}
+.btn-total-amountPrice-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+}
+.ttooya {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.eiasm {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+.btn-total-amountPrice-main {
+    padding: 24px 0 50px;
+}
+.btn-total-amountPrice-main .button-main {
+    width: 100%;
+}
+/*-----------------------[ 29.Promocodes Screen CSS ]------------------------*/
+#promoScreenInput {
+    margin: 16px 0;
+}
+.coupon-code-box-sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+.coupon-code-box {
+    border-radius: 8px;
+    border: 2px solid #F5F5F5;
+    padding: 16px;
+    margin: 16px 0;
+}
+.percentag-offer {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.expire-date {
+    color: #555555;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.coupon-code {
+    font-size: 14px;
+    font-weight: 500;
+}
+.exp {
+    color: #FE6601;
+}
+/*-----------------------[ 30.Checkout Screen CSS ]------------------------*/
+.myOrder-text {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 8px 0;
+    border-bottom: 2px solid #F5F5F5;
+}
+.myOrder-text span {
+    font-weight: 500;
+}
+.Georg_main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+#Georg_main {
+    margin: 16px 0 24px;
+}
+.Georg {
+    max-width: 200px;
+}
+.eneum-main {
+    overflow: hidden;
+    color: var(--3, #555);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.eneum-main-discount {
+    color: #4ADE80;
+}
+.eneum-main-delivery {
+    color: #FF373C;
+}
+.add-loc-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: rgba(254, 102, 1, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shipping-detil h2 {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.shipping-detil p {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.addlsHopot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    border-bottom: 2px solid #F5F5F5;
+}
+.addlsHopot-sub {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.AdditionalNotes-main {
+    border-radius: 8px;
+    background: var(--9, #F5F5F5);
+    padding: 12px;
+    margin-top: 14px;
+}
+.AdditionalNotes-main p {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    padding-bottom: 12px;
+}
+.AdditionalNotes-main textarea {
+    width: 100%;
+    height: 130px;
+    outline: none;
+    background: var(--9, #F5F5F5);
+    border: none;
+    color: #555555;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 20px;
+    resize: none;
+}
+.shippDtials {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 24px 24px 16px 24px;
+    border-bottom: 1px solid #F5F5F5;
+}
+.form-check {
+    display: block;
+    min-height: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.Ave {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-top: 5px;
+}
+.vsisa-logo {
+    width: 45px;
+    height: 32px;
+    border: 2px solid #F5F5F5;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+}
+.traMyOrder-btn #traMyOrder-btn {
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+    margin-bottom: 16px;
+}
+.Wishlist-tab {
+    margin-top: 16px;
+}
+/*-----------------------[ 31.Account Screen CSS ]------------------------*/
+.account-profile-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0;
+}
+.account-profile-main-sub {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.account-img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+.Jessica {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    padding-bottom: 4px;
+}
+.Jessica-number {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+.accountListText {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.accountlistMain {
+    border-radius: 12px;
+    border: 1px solid var(--9, #F5F5F5);
+    margin-bottom: 12px;
+    margin-top: 0;
+    padding: 8px;
+}
+.profile-screen-main {
+    margin-top: 24px;
+}
+/*-----------------------[ 32.My Orders Screen CSS ]------------------------*/
+#ongoing {
+    width: 100%;
+    margin-left: 0;
+    border: 2px solid #FE6601;
+    gap: 0;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+.ongoing {
+    color: #FE6601;
+    text-align: center;
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 12px;
+    max-width: 300px;
+    width: 100%;
+}
+.ongoing.tab-active {
+    background: #FE6601;
+    color: #FFFFFF;
+}
+.LeaveReview,
+.LeaveReview a {
+    color: var(--1, #FFF);
+    text-align: center;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    background: #000;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+}
+.Delivered {
+    background: #F5F5F5;
+    color: #000;
+    display: inline;
+}
+.leavereviw-main {
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 12px;
+}
+.knee-pricedada {
+    font-size: 16px;
+}
+/*-----------------------[ 33.Order Track Screen CSS ]------------------------*/
+.track-order-veh {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 58px;
+    position: relative;
+    margin: 24px 0;
+}
+.doted-lines-tack {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.orderStatusDe {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 24px 0;
+    border-top: 2px solid #F5F5F5;
+}
+.orderStatusDe-sub {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 32px;
+}
+.orderStatusDe-text-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.orderStatusDe-text h2 {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+.orderStatusDe-text p {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    padding-top: 4px;
+}
+.orderStatusDe-Time {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+}
+.dottedLine::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    left: 15px;
+    border-left: 2px dashed black;
+    height: 40px;
+}
+.howis {
+    margin-top: 24px;
+}
+/*-----------------------[ 34.Leave Review Screen CSS ]------------------------*/
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 32px;
+    gap: 5px;
+    cursor: pointer;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    color: #ccc;
+    cursor: pointer;
+}
+.star-rating :checked~label {
+    color: #FE6601;
+}
+.star-rating label:hover,
+.star-rating label:hover~label {
+    color: #FE6601;
+}
+.rate-star {
+    margin: 20px 0;
+}
+.product-comment {
+    width: 100%;
+    height: 206px;
+    border: 1px solid #F6F8FA !important;
+    border-radius: 8px;
+    resize: none;
+    background: #F0F0F0;
+}
+.product-textarea1 {
+    width: 100%;
+    resize: none;
+    height: 135px;
+    border: none;
+    outline: none;
+    padding: 16px;
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    background: #F0F0F0;
+    border-radius: 8px;
+}
+.uploadbtn-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: sticky;
+    bottom: 0;
+}
+.img-upload {
+    width: 150px;
+    padding: 7px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #FFF;
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+/*-----------------------[ 35.My Wallet Screen CSS ]------------------------*/
+.wallet-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+.wallet-amount h2 {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+}
+.wallet-amount p {
+    color: #FE6601;
+    font-weight: 500;
+}
+.you_can_add {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.limit {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 24px 0 32px;
+}
+.mastCard {
+    width: 74px;
+    height: 48px;
+}
+.Njdcn {
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+#Njdcn {
+    color: #FE6601;
+}
+/*-----------------------[ 36.Add New Card Screen CSS ]------------------------*/
+.demo-visa {
+    background-image: url(../images/add-new-card/card-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 200px;
+    height: 100%;
+    max-width: 343px;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.card-hidden-number {
+    color: var(--1, #FFF);
+    font-family: "League Spartan";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 1.2px;
+}
+.card-name-jessica-main {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 25px;
+}
+.card-name-jessica {
+    color: var(--1, #FFF);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.card-name-jessica-main-sub {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 25px;
+}
+.card-date-cvv {
+    color: var(--1, #FFF);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+.cvv-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+/*-----------------------[ 37.Notification Screen CSS ]------------------------*/
+.odPIN {
+    justify-content: center;
+}
+.map1-img {
+    max-width: 100%;
+    padding-top: 16px;
+}
+.yrteb {
+    text-align: center;
+}
+.today-yesterday {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+.notification_box {
+    border-radius: 8px;
+    background: var(--9, #F5F5F5);
+    padding: 12px;
+    margin-bottom: 8px;
+}
+.spacial-discount {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.promotion {
+    padding-top: 5px;
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+#today-yesterday,
+#today-yesterday2 {
+    padding-top: 25px;
+}
+/*-----------------------[ 38.Notification Options Screen CSS ]------------------------*/
+.swiches-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid #F5F5F5;
+}
+.remember-text {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.check-box {
+    display: flex;
+}
+.swiches-toggle input:checked[type="checkbox"] {
+    background: #FE6601;
+    border: 2px solid transparent;
+}
+.swiches-toggle input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    width: 40px;
+    height: 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid #F5F5F5;
+    transition: 0.4s;
+}
+.swiches-toggle input:checked[type="checkbox"]::after {
+    left: 46%;
+}
+.swiches-toggle input[type="checkbox"]::after {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    top: 1px;
+    left: 0;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.05), 0px 1px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+/*-----------------------[ 39.Language Select Screen CSS ]------------------------*/
+.flg-main {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    border: 1px solid var(--9, #F5F5F5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flg-main img {
+    border-radius: 50%;
+}
+.flag {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.falg-text-mainsa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    border-radius: 24px 12px 12px 24px;
+    border: 1px solid var(--9, #F5F5F5);
+    padding: 12px;
+}
+.language-select {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+}
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease;
+}
+.language-option input[type="radio"] {
+    display: none;
+}
+.custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s ease;
+}
+.language-option input[type="radio"]:checked+.custom-radio {
+    background-color: #FE6601;
+    border-color: #FE6601;
+}
+.language-option input[type="radio"]:checked+.custom-radio::after {
+    content: url(../images/svg/check.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*-----------------------[ 40.Currency Select Screen CSS ]------------------------*/
+.currency-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid #F5F5F5;
+}
+.usd-dollar-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.usd-dollar-main img,
+.contacsd-img {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(99%) saturate(7480%) hue-rotate(311deg) brightness(94%) contrast(98%);
+}
+/*-----------------------[ 41.About Screen CSS ]------------------------*/
+.sit {
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding-bottom: 8px;
+}
+.contacsd-text {
+    color: var(--4, #FE6601);
+    font-family: "League Spartan";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    padding-top: 24px;
+}
+.heklp {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.helksp-amian {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--9, #F5F5F5);
+    margin-top: 4px;
+}
+.media-icon-main {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 10px;
+}
+.media-icon-name {
+    color: var(--2, #000);
+    text-align: center;
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    padding-top: 12px;
+}
+.yseunf {
+    padding: 16px 0 12px 0;
+}
+/*-----------------------[ 42.Contact Screen CSS ]------------------------*/
+.contact-asjk {
+    margin-top: 32px;
+}
+.conta-phone {
+    color: var(--2, #000);
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 8px;
+    background: var(--9, #F5F5F5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+/*-----------------------[ 43.FAQ Screen CSS ]------------------------*/
+.accordion-item {
+    border: none;
+}
+.accordion-header {
+    color: #000;
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 16px 0;
+    border-top: 2px solid #F5F5F5;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accordion-content {
+    display: none;
+}
+.open-class {
+    display: block;
+}
+.accordion-header.active {
+    color: #FE6601;
+    border-bottom: 2px solid #F5F5F5;
+}
+.sub-accordion-header {
+    padding-bottom: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+.sub-accordion-content {
+    display: none;
+    padding-bottom: 16px;
+    color: var(--3, #555);
+    font-family: Jost;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.sub-accordion-header.active {
+    color: #FE6601;
+}
+.icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+.icon.rotate {
+    transform: rotate(180deg);
+}
+.feed-labal {
+    color: var(--2, #000);
+    font-family: "League Spartan";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+.accordion-content, .sub-accordion-content {
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+.accordion-content.open, .sub-accordion-content.open {
+    display: block;
+}
+/*-----------------------[ 44.Pop Up Add Home Screen CSS ]------------------------*/
+.backgroundOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    opacity: .50;
+    filter: alpha(opacity=50);
+    -moz-opacity: .50;
+    z-index: 101;
+    display: none;
+}
+.delayedPopupWindow {
+    display: none;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    z-index: 102;
+    padding: 16px;
+    margin: 0 auto;
+    border-radius: 24px 24px 0 0;
+}
+#btnClose {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-align: right;
+    text-decoration: none;
+    color: #000;
+    font-size: 25px;
+}
+.formDescription {
+    text-align: center;
+}
+.formDescription img {
+    width: 85px;
+    max-width: 100%;
+    animation-name: hanging;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    transform-origin: center top;
+}
+.formDescription h3 {
+    display: block;
+    font-family: "League Spartan";
+    font-size: 35px;
+    font-weight: 700;
+    color: #000;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+.formDescription p {
+    margin-bottom: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    font-family: Jost;
+    color: var(--3, #555);
+    text-align: center;
+}
+.home-scrren-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
