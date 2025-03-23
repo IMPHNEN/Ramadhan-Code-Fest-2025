@@ -20,7 +20,7 @@ import (
 var ANIM_SEARCH string = "https://prod.animeplay.dev/items/series?"
 var IP string = "http://ip-api.com/json/?fields=61439"
 
-var JWT string = "fahmixd404@gmail.com"
+var JWT string = "...."
 var KEY []byte = []byte("b4c88e94b909a53f322c1da8699d310e")
 var IV []byte = []byte("hxNg4rQ-xvXPQatt")
 
@@ -74,7 +74,7 @@ func search(q, l, p string) map[string]interface{} {
 	head := &http.Header{}
 	head.Set("Accept", "*/*")
 	head.Set("User-Agent", "AnimePlay/1.1.4 (Android 30) 21121119SG/Xiaomi")
-	head.Set("Authorization", "Bearer W6BfD32COp61fZenIQuBak7cJJVPGRbF2os5LYkMLPo=")
+	head.Set("Authorization", "Bearer .....")
 	head.Set("Connection", "Keep-Alive")
 	head.Set("Host", "prod.animeplay.dev")
 	head.Set("installed_from_play_store", "true")
