@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-900 text-white font-poppins
+}
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.font-scheherazade-regular {
+    font-family: "Scheherazade New", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-scheherazade-medium {
+    font-family: "Scheherazade New", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.font-scheherazade-semibold {
+    font-family: "Scheherazade New", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.font-scheherazade-bold {
+    font-family: "Scheherazade New", serif;
+    font-weight: 700;
+    font-style: normal;
+}
