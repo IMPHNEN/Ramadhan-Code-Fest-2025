@@ -1,0 +1,30 @@
+﻿{
+	"version": 1679235170,
+	"fileList": [
+		"data.js",
+		"c2runtime.js",
+		"jquery-2.1.1.min.js",
+		"offlineClient.js",
+		"images/bg-sheet0.png",
+		"images/bg-sheet1.png",
+		"images/baratas-sheet0.png",
+		"images/jendela-sheet0.png",
+		"images/next-sheet0.png",
+		"images/next-sheet1.png",
+		"images/hitam-sheet0.png",
+		"images/btn_list-sheet0.png",
+		"images/bar_kiri-sheet0.png",
+		"images/hitam_2-sheet0.png",
+		"images/sprite-sheet0.png",
+		"images/start-sheet0.png",
+		"images/surah_index-sheet0.png",
+		"images/indeks-sheet0.png",
+		"images/lambang-sheet0.png",
+		"icon-16.png",
+		"icon-32.png",
+		"icon-114.png",
+		"icon-128.png",
+		"icon-256.png",
+		"loading-logo.png"
+	]
+}
