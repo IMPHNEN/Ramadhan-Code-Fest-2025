@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jangan lupa mengaji!</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    </head>
+    <body class="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+        <div class="text-center max-w-md p-6" x-data="quranAyat" x-init="fetchAyat">
+            <p class="text-3xl font-semibold mb-4" x-text="ayat.teksArab"></p>
+            <p class="text-lg italic text-gray-300 mb-2" x-text="ayat.teksLatin"></p>
+            <p class="text-lg text-gray-400" x-text="ayat.teksIndonesia"></p>
+        </div>
+
+        <script>
+            document.addEventListener("alpine:init", () => {
+                Alpine.data("quranAyat", () => ({
+                    ayat: {
+                        teksArab: "Memuat...",
+                        teksLatin: "",
+                        teksIndonesia: ""
+                    },
+                    async fetchAyat() {
+                        try {
+                            var res = await fetch(`https://equran.id/api/v2/surat/${Math.floor(Math.random() * 114) + 1}`);
+                            var data = await res.json();
+                            var ayatAcak = data.data.ayat[Math.floor(Math.random() * data.data.ayat.length)];
+                            this.ayat = {
+                                teksArab: ayatAcak.teksArab,
+                                teksLatin: ayatAcak.teksLatin,
+                                teksIndonesia: ayatAcak.teksIndonesia
+                            };
+                            document.title = `QS ${data.data.namaLatin}: ${ayatAcak.nomorAyat}`;
+                        } catch {
+                            this.ayat = {
+                                teksArab: "Gagal memuat ayat.",
+                                teksLatin: "",
+                                teksIndonesia: "Silakan coba lagi nanti."
+                            };
+                        }
+                    }
+                }));
+            });
+        </script>
+    </body>
+</html>
