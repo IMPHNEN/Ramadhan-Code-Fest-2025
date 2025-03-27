@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-6 text-center">
+    <h2 id="quote" class="text-2xl md:text-3xl font-bold text-green-400 glow">
+        <!-- The quote will appear directly here -->
+    </h2>
+    <p id="author" class="mt-2 text-gray-400 italic"></p>
+</div>
+
+<script>
+    const quotes = [
+        { text: "The quieter you become, the more you are able to hear.", author: "Ram Dass" },
+        { text: "Security is an illusion. The only constant is change.", author: "Anonymous" },
+        { text: "Hack the planet!", author: "Dade Murphy" },
+        { text: "A password manager is like a condom. Always use one.", author: "CyberSec Guru" },
+        { text: "Think before you click.", author: "Infosec Rule #1" },
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quote").textContent = `"${randomQuote.text}"`;
+    document.getElementById("author").textContent = `- ${randomQuote.author}`;
+</script>
+{% endblock %}

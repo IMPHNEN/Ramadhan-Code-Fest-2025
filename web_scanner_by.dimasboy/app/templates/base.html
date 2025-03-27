@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Web App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .menu-toggle:checked ~ .menu {
+      display: block;
+    }
+
+    .ascii-art {
+      font-family: monospace;
+      white-space: pre;
+      text-align: center;
+      margin-top: 1rem;
+      color: #48bb78;
+      text-shadow: 2px 2px 5px rgba(72, 187, 120, 0.7);
+    }
+
+    footer {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="container max-w-screen-lg mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="{{ url_for('index') }}" class="text-xl font-bold flex items-center">
+      <i class="fa-solid fa-house mr-2"></i> Security Web App
+    </a>
+    <!-- Menu Mobile -->
+    <input type="checkbox" id="menu-toggle" class="hidden menu-toggle">
+    <label for="menu-toggle" class="text-2xl cursor-pointer md:hidden">
+      <i class="fa-solid fa-bars"></i>
+    </label>
+    <nav class="menu hidden md:flex space-x-4">
+      <a href="{{ url_for('email.email_leak_check') }}" class="hover:text-blue-400"><i class="fa-solid fa-envelope mr-1"></i> Email Leak</a>
+      <a href="{{ url_for('password.password_generator') }}" class="hover:text-blue-400"><i class="fa-solid fa-key mr-1"></i> Password Generator</a>
+      <a href="{{ url_for('subdomain.subdomain_lookup') }}" class="hover:text-blue-400"><i class="fa-solid fa-search mr-1"></i> Subdomain Lookup</a>
+    </nav>
+  </header>
+
+  <!-- ASCII Art -->
+  <section class="container mx-auto px-4 flex justify-center items-center">
+    <div class="ascii-art">
+      _      _         _                _                                
+     | |    | |       | |              | |                               
+     | | ___| |_ ___  | |__   __ _  ___| | __                            
+     | |/ _ \ __/ __| | '_ \ / _` |/ __| |/ /                            
+     | |  __/ |_\__ \ | | | | (_| | (__|   <                             
+     |_|\___|\__|___/_|_| |_|\__,_|\___|_|\_\      ____                  
+     | |           |  __ \(_)                     |  _ \                 
+     | |__  _   _  | |  | |_ _ __ ___   __ _ ___  | |_) | ___  _   _ ___ 
+     | '_ \| | | | | |  | | | '_ ` _ \ / _` / __| |  _ < / _ \| | | / __|
+     | |_) | |_| | | |__| | | | | | | | (_| \__ \ | |_) | (_) | |_| \__ \
+     |_.__/ \__, | |_____/|_|_| |_| |_|\__,_|___/ |____/ \___/ \__, |___/
+            __/ |                                              __/ |    
+           |___/                                              |___/      
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-4 max-w-2xl flex flex-col items-center">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition w-full">
+      <h2 class="text-xl font-bold mb-2 text-center">Selamat Datang di Security Web App</h2>
+      <p class="text-center">Gunakan alat kami untuk memeriksa kebocoran email, membuat password yang kuat, dan mencari subdomain dengan mudah.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition w-full mt-4">
+      <h3 class="text-lg font-bold mb-2 text-center">🔒 Keamanan Terjamin</h3>
+      <p class="text-center">Kami tidak menyimpan data Anda, semua proses dilakukan secara aman dan terenkripsi.</p>
+    </div>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 text-sm opacity-80 hover:opacity-100">
+    <p>&copy; 2025 Security Web App</p>
+    <a href="{{ url_for('index') }}" class="hover:text-orange-400"><i class="fa-solid fa-house mr-1"></i> Home</a>
+  </footer>
+
+</body>
+</html>
