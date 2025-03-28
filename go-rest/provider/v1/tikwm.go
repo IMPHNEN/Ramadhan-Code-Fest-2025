@@ -1,12 +1,12 @@
-package provider
+package v1
 
 import (
-	"io"
+	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"net/url"
-	"encoding/json"
-	
+
 	"down/helper"
 
 	"github.com/gofiber/fiber/v2"
@@ -81,7 +81,7 @@ func init() {
 			"url": "url tiktokmu",
 		},
 		Type: "",
-		Body: make(map[string]interface{}),
+		Body: map[string]interface{}{},
 
 		Code: func(c *fiber.Ctx) error {
 			params := new(UrlQuery)
@@ -135,7 +135,7 @@ func ttdown(link string) ITikWmResult {
 	req.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36")
 	req.Set("x-requested-with", "XMLHttpRequest")
 
-	res, err := helper.Request(TIKWM + "?" + args.Encode(), "GET", nil, nil)
+	res, err := helper.Request(TIKWM+"?"+args.Encode(), "GET", nil, nil)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -144,7 +144,7 @@ func ttdown(link string) ITikWmResult {
 	if err != nil {
 		fmt.Println(err)
 	}
-	
+
 	var jsn ITikWmResult
 	err = json.Unmarshal(ctt, &jsn)
 	if err != nil {

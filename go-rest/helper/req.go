@@ -12,7 +12,7 @@ import (
 	"golang.org/x/net/http2"
 )
 
-func Request(url, method string, body io.Reader, header http.Header) (*http.Response, error) {
+func Request(url, method string, body io.Reader, header http.Header, optional ...bool) (*http.Response, error) {
 	dns := &dnscache.Resolver{}
 
 	transport := &http.Transport{
@@ -36,9 +36,21 @@ func Request(url, method string, body io.Reader, header http.Header) (*http.Resp
 
 	_ = http2.ConfigureTransport(transport)
 
+	isRedirect := true
+	if len(optional) != 0 {
+		isRedirect = false
+	}
+
 	client := http.Client{
 		Transport: transport,
 		Timeout: 30 * time.Second,
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			if isRedirect {
+				return nil
+			}
+
+			return http.ErrUseLastResponse
+		},
 	}
 
 	req, err := http.NewRequest(method, url, body)

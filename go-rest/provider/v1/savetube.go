@@ -1,4 +1,4 @@
-package provider
+package v1
 
 import (
 	"bytes"
@@ -70,7 +70,7 @@ func init() {
 			"url": "url youtube",
 		},
 		Type: "",
-		Body: make(map[string]interface{}),
+		Body: map[string]interface{}{},
 
 		Code: func(c *fiber.Ctx) error {
 			params := new(UrlQuery)
