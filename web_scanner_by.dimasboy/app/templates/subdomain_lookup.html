@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card mx-auto mt-8 p-8 bg-gray-800 rounded-lg shadow-lg w-full max-w-lg">
+  <h2 class="text-3xl font-bold mb-6 text-center text-white">Subdomain Lookup 🔍</h2>
+  <form method="post" class="space-y-6">
+    <div>
+      <label for="domain" class="block text-lg font-medium text-gray-300">Masukkan Domain:</label>
+      <input type="text" name="domain" id="domain" required
+             placeholder="example.com"
+             class="mt-2 block w-full p-4 text-lg bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+    </div>
+    <div>
+      <button type="submit" class="w-full py-3 text-lg bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition">
+        Cari Subdomain
+      </button>
+    </div>
+  </form>
+
+  {% if result %}
+  <div class="mt-6 p-5 bg-gray-700 rounded-lg">
+    <h3 class="text-xl font-semibold mb-4 text-white">Hasil:</h3>
+    {% if result.subdomains %}
+      <ul id="subdomain-list" class="list-disc list-inside text-lg text-gray-200">
+        {% for subdomain in result.subdomains %}
+          <li>{{ subdomain }}</li>
+        {% endfor %}
+      </ul>
+      <button onclick="copySubdomains()" class="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+        Copy List
+      </button>
+    {% elif result.message %}
+      <p class="text-lg text-gray-200">{{ result.message }}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+<script>
+  function copySubdomains() {
+    const listElement = document.getElementById('subdomain-list');
+    let textToCopy = '';
+    if (listElement) {
+      const items = listElement.getElementsByTagName('li');
+      for (let i = 0; i < items.length; i++) {
+        textToCopy += items[i].innerText + '\n';
+      }
+      navigator.clipboard.writeText(textToCopy)
+        .then(() => { alert("Subdomain list copied!"); })
+        .catch((err) => { alert("Failed to copy subdomains: " + err); });
+    } else {
+      alert("No subdomain list available to copy.");
+    }
+  }
+</script>
+{% endblock %}

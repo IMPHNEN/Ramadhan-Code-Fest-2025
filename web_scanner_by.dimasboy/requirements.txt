@@ -1,0 +1,4 @@
+Flask
+cloudscraper
+beautifulsoup4
+requests
